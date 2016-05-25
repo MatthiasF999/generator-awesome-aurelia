@@ -16,6 +16,14 @@
       "namespaces": ["translation","nav"],
       "defaultNs": "translation"
     },
+    "notification": {
+      "translate": true,
+      "notifications": {
+        "success": "humane-libnotify-success",
+        "error": "humane-libnotify-error",
+        "info": "humane-libnotify-info"
+      }
+    },
     "development": {
 
     },

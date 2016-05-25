@@ -9,7 +9,6 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
-
     //plugins
     //aurelia-configuration
     .plugin('aurelia-configuration', config => {
@@ -29,6 +28,10 @@ export function configure(aurelia) {
     .plugin('aurelia-i18n', (instance) => {
       instance.i18next.use(Backend);
       return instance.setup(configInstance.get('i18n'));
+    })
+    //aurelia-notification
+    .plugin('aurelia-notification', config => {
+      config.configure(configInstance.get('notification'));
     });
 
   //Uncomment the line below to enable animation.

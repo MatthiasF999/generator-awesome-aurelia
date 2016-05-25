@@ -1,9 +1,23 @@
 import 'bootstrap';
+import {Configure} from 'aurelia-configuration';
+
 
 export function configure(aurelia) {
+  let configInstance = aurelia.container.get(Configure);
+
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
+    .developmentLogging()
+
+    //plugins
+    //aurelia-configuration
+    .plugin('aurelia-configuration', config => {
+      config.setEnvironments({
+        development: ['localhost', 'dev.local'],
+        staging: ['staging.website.com', 'test.staging.website.com'],
+        production: ['website.com']
+      });
+    });
 
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');

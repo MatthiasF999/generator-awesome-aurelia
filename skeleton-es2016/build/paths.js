@@ -9,6 +9,7 @@ module.exports = {
   css: appRoot + '**/*.css',
   style: 'styles/**/*.css',
   styleoutput: '_styles/',
+  json: appRoot + '**/*.json',
   output: outputRoot,
   exportSrv: exportSrvRoot,
   doc: './doc',

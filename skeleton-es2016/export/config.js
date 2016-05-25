@@ -238,6 +238,8 @@ System.config({
       "welcome.js"
     ],
     "aurelia.js": [
+      "github:github/fetch@0.11.1.js",
+      "github:github/fetch@0.11.1/fetch.js",
       "github:twbs/bootstrap@3.3.6.js",
       "github:twbs/bootstrap@3.3.6/css/bootstrap.css!github:systemjs/plugin-text@0.0.3.js",
       "github:twbs/bootstrap@3.3.6/js/bootstrap.js",

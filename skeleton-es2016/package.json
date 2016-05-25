@@ -72,6 +72,7 @@
       "aurelia-breeze": "npm:aurelia-breeze@^1.2.0",
       "aurelia-configuration": "github:vheissu/aurelia-configuration@1.0.6",
       "aurelia-dialog": "npm:aurelia-dialog@^0.6.2",
+      "aurelia-dragula": "npm:aurelia-dragula@^1.1.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.1.1",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.1.4",
       "aurelia-google-analytics": "github:miguelzakharia/aurelia-google-analytics@^1.0.3",

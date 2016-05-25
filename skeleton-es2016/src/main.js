@@ -38,7 +38,10 @@ export function configure(aurelia) {
       config.init(configInstance.get('google-analytics.tracking-id'));
       config.attach(configInstance.get('google-analytics.config'));
     })
-    .plugin('aurelia-breeze');
+    //aurelia-breeze
+    .plugin('aurelia-breeze')
+    //aurelia-dragula
+    .plugin('aurelia-dragula');
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');
   //if the css animator is enabled, add swap-order="after" to all router-view elements

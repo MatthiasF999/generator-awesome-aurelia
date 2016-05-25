@@ -25,6 +25,7 @@ System.config({
     "aurelia-breeze": "npm:aurelia-breeze@1.2.0",
     "aurelia-configuration": "github:vheissu/aurelia-configuration@1.0.6",
     "aurelia-dialog": "npm:aurelia-dialog@0.6.2",
+    "aurelia-dragula": "npm:aurelia-dragula@1.1.1",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.5",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
     "aurelia-google-analytics": "github:miguelzakharia/aurelia-google-analytics@1.0.3",
@@ -131,6 +132,12 @@ System.config({
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7"
+    },
+    "npm:aurelia-dragula@1.1.1": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.2.0.1",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7"
     },
     "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1": {
@@ -324,7 +331,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build-98399a0485.js": [
+    "app-build-abc4d84713.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -338,7 +345,7 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-f373364166.js": [
+    "aurelia-9c9be96fd7.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
@@ -384,6 +391,17 @@ System.config({
       "npm:aurelia-dialog@0.6.2/resources/ai-dialog.html!github:systemjs/plugin-text@0.0.3.js",
       "npm:aurelia-dialog@0.6.2/resources/ai-dialog.js",
       "npm:aurelia-dialog@0.6.2/resources/attach-focus.js",
+      "npm:aurelia-dragula@1.1.1.js",
+      "npm:aurelia-dragula@1.1.1/classes.js",
+      "npm:aurelia-dragula@1.1.1/dragula-and-drop.js",
+      "npm:aurelia-dragula@1.1.1/dragula.css!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dragula@1.1.1/dragula.js",
+      "npm:aurelia-dragula@1.1.1/emitter.js",
+      "npm:aurelia-dragula@1.1.1/index.js",
+      "npm:aurelia-dragula@1.1.1/move-before.js",
+      "npm:aurelia-dragula@1.1.1/options.js",
+      "npm:aurelia-dragula@1.1.1/touchy.js",
+      "npm:aurelia-dragula@1.1.1/util.js",
       "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1.js",
       "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1/aurelia-event-aggregator.js",
       "npm:aurelia-fetch-client@1.0.0-beta.1.2.5.js",

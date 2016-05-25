@@ -34,6 +34,7 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.2.4",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.2.6",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.2.1",
+    "aurelia-ui-virtualization": "npm:aurelia-ui-virtualization@0.4.5",
     "aurelia-validatejs": "npm:aurelia-validatejs@0.3.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
@@ -194,6 +195,18 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.2.2",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.2.1"
     },
+    "npm:aurelia-ui-virtualization@0.4.5": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1",
+      "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.2",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.2.2",
+      "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.2.1",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.2.6"
+    },
     "npm:aurelia-validatejs@0.3.1": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
@@ -249,7 +262,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build-1d5e2d6d90.js": [
+    "app-build-9de70ce789.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -263,7 +276,7 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-a2d2b3c569.js": [
+    "aurelia-c35617c067.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
@@ -360,6 +373,14 @@ System.config({
       "npm:aurelia-templating-router@1.0.0-beta.1.2.1/router-view.js",
       "npm:aurelia-templating@1.0.0-beta.1.2.7.js",
       "npm:aurelia-templating@1.0.0-beta.1.2.7/aurelia-templating.js",
+      "npm:aurelia-ui-virtualization@0.4.5.js",
+      "npm:aurelia-ui-virtualization@0.4.5/array-virtual-repeat-strategy.js",
+      "npm:aurelia-ui-virtualization@0.4.5/dom-helper.js",
+      "npm:aurelia-ui-virtualization@0.4.5/index.js",
+      "npm:aurelia-ui-virtualization@0.4.5/utilities.js",
+      "npm:aurelia-ui-virtualization@0.4.5/view-strategy.js",
+      "npm:aurelia-ui-virtualization@0.4.5/virtual-repeat-strategy-locator.js",
+      "npm:aurelia-ui-virtualization@0.4.5/virtual-repeat.js",
       "npm:aurelia-validatejs@0.3.1.js",
       "npm:aurelia-validatejs@0.3.1/base-decorator.js",
       "npm:aurelia-validatejs@0.3.1/decorators.js",

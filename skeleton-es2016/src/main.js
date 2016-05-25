@@ -19,7 +19,9 @@ export function configure(aurelia) {
       });
     })
     //aurelia-validatejs
-    .plugin('aurelia-validatejs');
+    .plugin('aurelia-validatejs')
+    //aurelia-ui-virtualization
+    .plugin('aurelia-ui-virtualization');
 
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');

@@ -31,6 +31,7 @@ module.exports = {
         'aurelia-configuration',
         'aurelia-validatejs',
         'aurelia-validatejs/validate-binding-behavior',
+        'aurelia-ui-virtualization',
         'bootstrap',
         'bootstrap/css/bootstrap.css!text',
         'text',

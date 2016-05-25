@@ -1,5 +1,6 @@
 import 'bootstrap';
 import {Configure} from 'aurelia-configuration';
+import Backend from 'i18next-xhr-backend';
 
 
 export function configure(aurelia) {
@@ -23,7 +24,12 @@ export function configure(aurelia) {
     //aurelia-ui-virtualization
     .plugin('aurelia-ui-virtualization')
     //aurelia-dialog
-    .plugin('aurelia-dialog');
+    .plugin('aurelia-dialog')
+    //aurelia-i18n
+    .plugin('aurelia-i18n', (instance) => {
+      instance.i18next.use(Backend);
+      return instance.setup(configInstance.get('i18n'));
+    });
 
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');

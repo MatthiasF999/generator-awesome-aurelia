@@ -27,6 +27,7 @@ System.config({
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.5",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.2.1",
+    "aurelia-i18n": "npm:aurelia-i18n@0.5.3",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.2.2",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.2",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.2.0.1",
@@ -44,6 +45,7 @@ System.config({
     "deep-extend": "npm:deep-extend@0.4.1",
     "fetch": "github:github/fetch@0.11.1",
     "font-awesome": "npm:font-awesome@4.6.3",
+    "i18next-xhr-backend": "npm:i18next-xhr-backend@0.5.4",
     "jquery": "npm:jquery@2.2.4",
     "text": "github:systemjs/plugin-text@0.0.3",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -131,6 +133,17 @@ System.config({
     "npm:aurelia-history-browser@1.0.0-beta.1.2.1": {
       "aurelia-history": "npm:aurelia-history@1.0.0-beta.1.2.1",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
+    },
+    "npm:aurelia-i18n@0.5.3": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1",
+      "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1.2.0",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.2.6",
+      "i18next": "npm:i18next@2.5.1",
+      "intl": "npm:intl@1.2.3"
     },
     "npm:aurelia-loader-default@1.0.0-beta.1.2.2": {
       "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1.2.0",
@@ -251,8 +264,14 @@ System.config({
     "npm:font-awesome@4.6.3": {
       "css": "github:systemjs/plugin-css@0.1.21"
     },
+    "npm:i18next@2.5.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:intl@1.2.3": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -269,7 +288,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build-7b05c20c24.js": [
+    "app-build-8416ba30eb.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -283,7 +302,7 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-c7b3366b49.js": [
+    "aurelia-64c1530e6e.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
@@ -334,6 +353,17 @@ System.config({
       "npm:aurelia-history-browser@1.0.0-beta.1.2.1/aurelia-history-browser.js",
       "npm:aurelia-history@1.0.0-beta.1.2.1.js",
       "npm:aurelia-history@1.0.0-beta.1.2.1/aurelia-history.js",
+      "npm:aurelia-i18n@0.5.3.js",
+      "npm:aurelia-i18n@0.5.3/aurelia-i18n.js",
+      "npm:aurelia-i18n@0.5.3/base-i18n.js",
+      "npm:aurelia-i18n@0.5.3/defaultTranslations/relative.time.js",
+      "npm:aurelia-i18n@0.5.3/df.js",
+      "npm:aurelia-i18n@0.5.3/i18n.js",
+      "npm:aurelia-i18n@0.5.3/nf.js",
+      "npm:aurelia-i18n@0.5.3/relativeTime.js",
+      "npm:aurelia-i18n@0.5.3/rt.js",
+      "npm:aurelia-i18n@0.5.3/t.js",
+      "npm:aurelia-i18n@0.5.3/utils.js",
       "npm:aurelia-loader-default@1.0.0-beta.1.2.2.js",
       "npm:aurelia-loader-default@1.0.0-beta.1.2.2/aurelia-loader-default.js",
       "npm:aurelia-loader@1.0.0-beta.1.2.0.js",
@@ -432,6 +462,27 @@ System.config({
       "npm:buffer@3.6.0/index.js",
       "npm:deep-extend@0.4.1.js",
       "npm:deep-extend@0.4.1/lib/deep-extend.js",
+      "npm:i18next-xhr-backend@0.5.4.js",
+      "npm:i18next-xhr-backend@0.5.4/dist/commonjs/index.js",
+      "npm:i18next-xhr-backend@0.5.4/dist/commonjs/utils.js",
+      "npm:i18next-xhr-backend@0.5.4/index.js",
+      "npm:i18next@2.5.1.js",
+      "npm:i18next@2.5.1/dist/commonjs/BackendConnector.js",
+      "npm:i18next@2.5.1/dist/commonjs/CacheConnector.js",
+      "npm:i18next@2.5.1/dist/commonjs/EventEmitter.js",
+      "npm:i18next@2.5.1/dist/commonjs/Interpolator.js",
+      "npm:i18next@2.5.1/dist/commonjs/LanguageUtils.js",
+      "npm:i18next@2.5.1/dist/commonjs/PluralResolver.js",
+      "npm:i18next@2.5.1/dist/commonjs/ResourceStore.js",
+      "npm:i18next@2.5.1/dist/commonjs/Translator.js",
+      "npm:i18next@2.5.1/dist/commonjs/compatibility/v1.js",
+      "npm:i18next@2.5.1/dist/commonjs/defaults.js",
+      "npm:i18next@2.5.1/dist/commonjs/i18next.js",
+      "npm:i18next@2.5.1/dist/commonjs/index.js",
+      "npm:i18next@2.5.1/dist/commonjs/logger.js",
+      "npm:i18next@2.5.1/dist/commonjs/postProcessor.js",
+      "npm:i18next@2.5.1/dist/commonjs/utils.js",
+      "npm:i18next@2.5.1/index.js",
       "npm:ieee754@1.1.6.js",
       "npm:ieee754@1.1.6/index.js",
       "npm:isarray@1.0.0.js",
@@ -450,7 +501,8 @@ System.config({
     ],
     "main.js": [
       "bootstrap",
-      "aurelia-configuration"
+      "aurelia-configuration",
+      "i18next-xhr-backend"
     ],
     "users.js": [
       "aurelia-framework",

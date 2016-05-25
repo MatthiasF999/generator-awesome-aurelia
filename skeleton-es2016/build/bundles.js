@@ -35,6 +35,8 @@ module.exports = {
         'aurelia-dialog',
         'aurelia-dialog/resources/*.html!text',
         'aurelia-dialog/dialog.css!text',
+        'aurelia-i18n',
+        'i18next-xhr-backend',
         'bootstrap',
         'bootstrap/css/bootstrap.css!text',
         'text',

@@ -12,6 +12,7 @@ module.exports = {
     "jspm_packages/npm/font-awesome@4.6.3/fonts/*",
     "jspm_packages/github/github/fetch@0.11.0.js",
     "jspm_packages/github/github/fetch@0.11.0/fetch.js",
-    "jspm_packages/github/twbs/bootstrap@3.3.6/fonts/*"
+    "jspm_packages/github/twbs/bootstrap@3.3.6/fonts/*",
+    "locales/**/*.json"
   ]
 };

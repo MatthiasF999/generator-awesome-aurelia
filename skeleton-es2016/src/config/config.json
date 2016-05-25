@@ -5,6 +5,17 @@
         "key": "somekey",
         "endpoint": "http://www.google.com/"
     },
+    "i18n": {
+      "backend": {
+        "loadPath": "/locales/{{lng}}/{{ns}}.json"
+      },
+      "lng" : "de",
+      "attributes" : ["t","i18n"],
+      "fallbackLng" : "en",
+      "debug" : false,
+      "namespaces": ["translation","nav"],
+      "defaultNs": "translation"
+    },
     "development": {
 
     },

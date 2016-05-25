@@ -1,58 +1,71 @@
 {
-    "name": "Test Application",
-    "version": "1.2",
-    "i18n": {
-      "backend": {
-        "loadPath": "/locales/{{lng}}/{{ns}}.json"
-      },
-      "lng" : "de",
-      "attributes" : ["t","i18n"],
-      "fallbackLng" : "en",
-      "debug" : false,
-      "namespaces": ["translation","nav"],
-      "defaultNs": "translation"
+  "name": "Test Application",
+  "version": "1.2",
+  "i18n": {
+    "backend": {
+      "loadPath": "/locales/{{lng}}/{{ns}}.json"
     },
-    "notification": {
-      "translate": true,
-      "notifications": {
-        "success": "humane-libnotify-success",
-        "error": "humane-libnotify-error",
-        "info": "humane-libnotify-info"
+    "lng" : "de",
+    "attributes" : ["t","i18n"],
+    "fallbackLng" : "en",
+    "debug" : false,
+    "namespaces": ["translation","nav"],
+    "defaultNs": "translation"
+  },
+  "notification": {
+    "translate": true,
+    "notifications": {
+      "success": "humane-libnotify-success",
+      "error": "humane-libnotify-error",
+      "info": "humane-libnotify-info"
+    }
+  },
+  "google-analytics": {
+    "tracking-id": "",
+      "config": {
+        "logging": {
+          "enabled": true
+        },
+        "pageTracking": {
+          "enabled": false
+        },
+        "clickTracking": {
+          "enabled": false
+        }
       }
-    },
-    "google-analytics": {
-      "tracking-id": "",
-        "config": {
-          "logging": {
-            "enabled": true
-          },
-          "pageTracking": {
-            "enabled": false
-          },
-          "clickTracking": {
-            "enabled": false
-          }
-        }
-    },
-    "development": {
+  },
+  "development": {
+    "auth": {
+      "providers": {
 
-    },
-    "staging": {
-      
-    },
-    "production": {
-      "google-analytics": {
-        "config": {
-          "logging": {
-            "enabled": false
-          },
-          "pageTracking": {
-            "enabled": true
-          },
-          "clickTracking": {
-            "enabled": true
-          }
-        }
       }
     }
+  },
+  "staging": {
+    "auth": {
+      "providers": {
+
+      }
+    }
+  },
+  "production": {
+    "google-analytics": {
+      "config": {
+        "logging": {
+          "enabled": false
+        },
+        "pageTracking": {
+          "enabled": true
+        },
+        "clickTracking": {
+          "enabled": true
+        }
+      }
+    },
+    "auth": {
+      "providers": {
+
+      }
+    }
+  }
 }

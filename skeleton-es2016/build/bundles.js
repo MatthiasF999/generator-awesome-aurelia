@@ -41,6 +41,8 @@ module.exports = {
         'aurelia-dragula',
         'aurelia-dragula/dragula-and-drop',
         'aurelia-dragula/dragula.css!text',
+        'aurelia-auth',
+        'aurelia-auth/auth-filter',
         'aurelia-i18n',
         'i18next-xhr-backend',
         'bootstrap',

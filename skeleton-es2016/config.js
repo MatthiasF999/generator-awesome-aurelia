@@ -22,6 +22,7 @@ System.config({
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.2.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1",
+    "aurelia-breeze": "npm:aurelia-breeze@1.2.0",
     "aurelia-configuration": "github:vheissu/aurelia-configuration@1.0.6",
     "aurelia-dialog": "npm:aurelia-dialog@0.6.2",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.5",
@@ -43,6 +44,7 @@ System.config({
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
+    "breeze": "npm:breeze-client@1.5.6",
     "core-js": "npm:core-js@1.2.6",
     "deep-extend": "npm:deep-extend@0.4.1",
     "fetch": "github:github/fetch@0.11.1",
@@ -113,6 +115,13 @@ System.config({
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.2.6",
       "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.2.1"
     },
+    "npm:aurelia-breeze@1.2.0": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
+      "aurelia-http-client": "npm:aurelia-http-client@1.0.0-beta.1.2.2",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
+      "breeze-client": "npm:breeze-client@1.5.6"
+    },
     "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
@@ -141,6 +150,10 @@ System.config({
     "npm:aurelia-history-browser@1.0.0-beta.1.2.1": {
       "aurelia-history": "npm:aurelia-history@1.0.0-beta.1.2.1",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
+    },
+    "npm:aurelia-http-client@1.0.0-beta.1.2.2": {
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.2.2"
     },
     "npm:aurelia-i18n@0.5.3": {
       "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
@@ -311,7 +324,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build-e2361039a0.js": [
+    "app-build-98399a0485.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -325,7 +338,7 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-2b8615d59e.js": [
+    "aurelia-f373364166.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
@@ -348,6 +361,8 @@ System.config({
       "npm:aurelia-binding@1.0.0-beta.1.3.6/aurelia-binding.js",
       "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1.js",
       "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1/aurelia-bootstrapper.js",
+      "npm:aurelia-breeze@1.2.0.js",
+      "npm:aurelia-breeze@1.2.0/aurelia-breeze.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3/aurelia-dependency-injection.js",
       "npm:aurelia-dialog@0.6.2.js",
@@ -379,6 +394,8 @@ System.config({
       "npm:aurelia-history-browser@1.0.0-beta.1.2.1/aurelia-history-browser.js",
       "npm:aurelia-history@1.0.0-beta.1.2.1.js",
       "npm:aurelia-history@1.0.0-beta.1.2.1/aurelia-history.js",
+      "npm:aurelia-http-client@1.0.0-beta.1.2.2.js",
+      "npm:aurelia-http-client@1.0.0-beta.1.2.2/aurelia-http-client.js",
       "npm:aurelia-i18n@0.5.3.js",
       "npm:aurelia-i18n@0.5.3/aurelia-i18n.js",
       "npm:aurelia-i18n@0.5.3/base-i18n.js",
@@ -486,6 +503,8 @@ System.config({
       "npm:aurelia-validation@0.8.1/validator.js",
       "npm:base64-js@0.0.8.js",
       "npm:base64-js@0.0.8/lib/b64.js",
+      "npm:breeze-client@1.5.6.js",
+      "npm:breeze-client@1.5.6/breeze.debug.js",
       "npm:buffer@3.6.0.js",
       "npm:buffer@3.6.0/index.js",
       "npm:deep-equal@1.0.1.js",

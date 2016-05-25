@@ -28,9 +28,11 @@ module.exports = {
         'aurelia-loader-default',
         'aurelia-history-browser',
         'aurelia-logging-console',
+        'aurelia-configuration',
+        'aurelia-validatejs',
+        'aurelia-validatejs/validate-binding-behavior',
         'bootstrap',
         'bootstrap/css/bootstrap.css!text',
-        'aurelia-configuration',
         'text',
         'jquery',
         'fetch'

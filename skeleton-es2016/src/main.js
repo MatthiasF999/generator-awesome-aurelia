@@ -17,7 +17,9 @@ export function configure(aurelia) {
         staging: ['staging.website.com', 'test.staging.website.com'],
         production: ['website.com']
       });
-    });
+    })
+    //aurelia-validatejs
+    .plugin('aurelia-validatejs');
 
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');

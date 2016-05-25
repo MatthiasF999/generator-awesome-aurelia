@@ -34,6 +34,7 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.2.4",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.2.6",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.2.1",
+    "aurelia-validatejs": "npm:aurelia-validatejs@0.3.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
@@ -193,6 +194,17 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.2.2",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.2.1"
     },
+    "npm:aurelia-validatejs@0.3.1": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.6",
+      "aurelia-validation": "npm:aurelia-validation@0.8.1",
+      "validate.js": "npm:validate.js@0.9.0"
+    },
+    "npm:aurelia-validation@0.8.1": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3"
+    },
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -231,10 +243,13 @@ System.config({
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:validate.js@0.9.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     }
   },
   bundles: {
-    "app-build-4302e97395.js": [
+    "app-build-1d5e2d6d90.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -248,11 +263,13 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-cc2c69b511.js": [
+    "aurelia-a2d2b3c569.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
       "github:jspm/nodelibs-buffer@0.1.0/index.js",
+      "github:jspm/nodelibs-process@0.1.2.js",
+      "github:jspm/nodelibs-process@0.1.2/index.js",
       "github:systemjs/plugin-text@0.0.3.js",
       "github:systemjs/plugin-text@0.0.3/text.js",
       "github:twbs/bootstrap@3.3.6.js",
@@ -343,6 +360,25 @@ System.config({
       "npm:aurelia-templating-router@1.0.0-beta.1.2.1/router-view.js",
       "npm:aurelia-templating@1.0.0-beta.1.2.7.js",
       "npm:aurelia-templating@1.0.0-beta.1.2.7/aurelia-templating.js",
+      "npm:aurelia-validatejs@0.3.1.js",
+      "npm:aurelia-validatejs@0.3.1/base-decorator.js",
+      "npm:aurelia-validatejs@0.3.1/decorators.js",
+      "npm:aurelia-validatejs@0.3.1/index.js",
+      "npm:aurelia-validatejs@0.3.1/metadata-key.js",
+      "npm:aurelia-validatejs@0.3.1/property-observer.js",
+      "npm:aurelia-validatejs@0.3.1/validate-binding-behavior.js",
+      "npm:aurelia-validatejs@0.3.1/validation-config.js",
+      "npm:aurelia-validatejs@0.3.1/validation-engine.js",
+      "npm:aurelia-validatejs@0.3.1/validation-renderer.js",
+      "npm:aurelia-validatejs@0.3.1/validation-reporter.js",
+      "npm:aurelia-validatejs@0.3.1/validation-rule.js",
+      "npm:aurelia-validatejs@0.3.1/validator.js",
+      "npm:aurelia-validation@0.8.1.js",
+      "npm:aurelia-validation@0.8.1/index.js",
+      "npm:aurelia-validation@0.8.1/validation-engine.js",
+      "npm:aurelia-validation@0.8.1/validation-error.js",
+      "npm:aurelia-validation@0.8.1/validation-reporter.js",
+      "npm:aurelia-validation@0.8.1/validator.js",
       "npm:base64-js@0.0.8.js",
       "npm:base64-js@0.0.8/lib/b64.js",
       "npm:buffer@3.6.0.js",
@@ -354,7 +390,11 @@ System.config({
       "npm:isarray@1.0.0.js",
       "npm:isarray@1.0.0/index.js",
       "npm:jquery@2.2.4.js",
-      "npm:jquery@2.2.4/dist/jquery.js"
+      "npm:jquery@2.2.4/dist/jquery.js",
+      "npm:process@0.11.3.js",
+      "npm:process@0.11.3/browser.js",
+      "npm:validate.js@0.9.0.js",
+      "npm:validate.js@0.9.0/validate.js"
     ]
   },
   depCache: {

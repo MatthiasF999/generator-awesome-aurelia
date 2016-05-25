@@ -12,7 +12,9 @@ export default class {
   configure() {
     let appRouterConfig = function(config) {
       config.title = 'Aurelia';
-      config.addPipelineStep('authorize', AuthorizeStep); // Add a route filter to the authorize extensibility point.
+      config.options.pushState = true;
+      config.options.hashChange = false;
+      config.addPipelineStep('authorize', AuthorizeStep);
 
       config.map([
         { route: ['', 'welcome'], name: 'welcome',      moduleId: 'routes/welcome/index',       nav: true,  title: 'Welcome' },

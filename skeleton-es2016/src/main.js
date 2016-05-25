@@ -21,7 +21,9 @@ export function configure(aurelia) {
     //aurelia-validatejs
     .plugin('aurelia-validatejs')
     //aurelia-ui-virtualization
-    .plugin('aurelia-ui-virtualization');
+    .plugin('aurelia-ui-virtualization')
+    //aurelia-dialog
+    .plugin('aurelia-dialog');
 
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');

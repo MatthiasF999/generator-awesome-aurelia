@@ -23,6 +23,7 @@ System.config({
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.2.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1",
     "aurelia-configuration": "github:vheissu/aurelia-configuration@1.0.6",
+    "aurelia-dialog": "npm:aurelia-dialog@0.6.2",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.5",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.2.1",
@@ -106,6 +107,12 @@ System.config({
       "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
+    },
+    "npm:aurelia-dialog@0.6.2": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7"
     },
     "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1"
@@ -262,7 +269,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build-9de70ce789.js": [
+    "app-build-7b05c20c24.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
@@ -276,7 +283,7 @@ System.config({
       "welcome.html!github:systemjs/plugin-text@0.0.3.js",
       "welcome.js"
     ],
-    "aurelia-c35617c067.js": [
+    "aurelia-c7b3366b49.js": [
       "github:github/fetch@0.11.1.js",
       "github:github/fetch@0.11.1/fetch.js",
       "github:jspm/nodelibs-buffer@0.1.0.js",
@@ -298,6 +305,25 @@ System.config({
       "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1/aurelia-bootstrapper.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3/aurelia-dependency-injection.js",
+      "npm:aurelia-dialog@0.6.2.js",
+      "npm:aurelia-dialog@0.6.2/aurelia-dialog.js",
+      "npm:aurelia-dialog@0.6.2/dialog-configuration.js",
+      "npm:aurelia-dialog@0.6.2/dialog-controller.js",
+      "npm:aurelia-dialog@0.6.2/dialog-options.js",
+      "npm:aurelia-dialog@0.6.2/dialog-service.js",
+      "npm:aurelia-dialog@0.6.2/dialog.css!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dialog@0.6.2/lifecycle.js",
+      "npm:aurelia-dialog@0.6.2/renderers/dialog-renderer.js",
+      "npm:aurelia-dialog@0.6.2/renderers/renderer.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-body.html!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-body.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-footer.html!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-footer.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-header.html!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog-header.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog.html!github:systemjs/plugin-text@0.0.3.js",
+      "npm:aurelia-dialog@0.6.2/resources/ai-dialog.js",
+      "npm:aurelia-dialog@0.6.2/resources/attach-focus.js",
       "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1.js",
       "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1/aurelia-event-aggregator.js",
       "npm:aurelia-fetch-client@1.0.0-beta.1.2.5.js",

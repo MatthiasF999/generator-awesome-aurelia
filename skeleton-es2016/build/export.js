@@ -5,6 +5,7 @@ module.exports = {
     'favicon.ico',
     'LICENSE',
     'jspm_packages/system.js',
+    'jspm_packages/system.js.map',
     'jspm_packages/system-polyfills.js',
     'jspm_packages/system-csp-production.js',
     '_styles/styles.css',

@@ -1,10 +1,6 @@
 {
     "name": "Test Application",
     "version": "1.2",
-    "api": {
-        "key": "somekey",
-        "endpoint": "http://www.google.com/"
-    },
     "i18n": {
       "backend": {
         "loadPath": "/locales/{{lng}}/{{ns}}.json"
@@ -24,13 +20,39 @@
         "info": "humane-libnotify-info"
       }
     },
+    "google-analytics": {
+      "tracking-id": "",
+        "config": {
+          "logging": {
+            "enabled": true
+          },
+          "pageTracking": {
+            "enabled": false
+          },
+          "clickTracking": {
+            "enabled": false
+          }
+        }
+    },
     "development": {
 
     },
     "staging": {
-
+      
     },
     "production": {
-
+      "google-analytics": {
+        "config": {
+          "logging": {
+            "enabled": false
+          },
+          "pageTracking": {
+            "enabled": true
+          },
+          "clickTracking": {
+            "enabled": true
+          }
+        }
+      }
     }
 }

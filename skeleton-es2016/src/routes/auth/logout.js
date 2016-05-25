@@ -8,7 +8,7 @@ export class Logout{
 	constructor(authService){
 		this.authService = authService;
 	};
-	
+
 	 activate(){
 		this.authService.logout("#/login")
 		.then(response=>{

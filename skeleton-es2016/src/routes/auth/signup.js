@@ -17,6 +17,6 @@ export class Signup{
 		.then((response)=>{
 			console.log("signed up");
 		});
-		
+
 	}
 }

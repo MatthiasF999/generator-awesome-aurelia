@@ -6,7 +6,7 @@ module.exports = {
         '**/*.html!text',
         '**/*.css!text',
         '**/*.json!text',
-        'moment'
+        'momentjs'
       ],
       'options': {
         'inject': true,

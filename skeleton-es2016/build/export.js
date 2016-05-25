@@ -7,7 +7,7 @@ module.exports = {
     "jspm_packages/system.js",
     "jspm_packages/system-polyfills.js",
     "jspm_packages/system-csp-production.js",
-    "styles/styles.css",
+    "_styles/styles.css",
     "jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css",
     "jspm_packages/npm/font-awesome@4.6.3/fonts/*",
     "jspm_packages/github/github/fetch@0.11.0.js",

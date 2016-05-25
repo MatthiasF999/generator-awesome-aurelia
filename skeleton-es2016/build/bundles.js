@@ -5,7 +5,8 @@ module.exports = {
         '[**/*.js]',
         '**/*.html!text',
         '**/*.css!text',
-        '**/*.json!text'
+        '**/*.json!text',
+        'moment'
       ],
       'options': {
         'inject': true,

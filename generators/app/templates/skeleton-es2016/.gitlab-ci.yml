@@ -1,0 +1,39 @@
+image: node:6.1.0
+
+cache:
+  paths:
+  - node_modules/
+  - jspm_packages/
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - npm install
+  - npm install -g jspm
+  - npm install -g gulp
+  - jspm install -y
+
+build:
+  stage: build
+  script:
+  - gulp build
+
+unit-test:
+  stage: test
+  script:
+  - npm install -g karma-cli
+  - npm test
+
+e2e-test:
+  stage: test
+  image: weboaks/node5-karma-protractor-chrome
+  script:
+  - npm run e2e --verbose
+
+export:
+  stage: deploy
+  script:
+  - gulp export

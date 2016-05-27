@@ -163,34 +163,58 @@ module.exports = yeoman.Base.extend({
   },
 
   config: function () {
-    var root = this.props.app_name;
+    let root = this.props.app_name;
+    
     this.destinationRoot(root + '/');
     this.config.save();
   },
 
   writing: function () {
-    console.log('Creating currently not implemented');
-    return true;
-    let plugins = ['aurelia-auth', 'aurelia-configuration'];
-    let current = this;
+    let plugins = ['aurelia-auth', 'aurelia-configuration'],
+      current = this,
+      skeleton = '',
+      plugins = ['aurelia-auth'];
+
+    switch ([this.props.transpiler, this.props.bundler, this.props.dotNet]) {
+      case ['Typescript', 'Webpack', undefined]:
+        skeleton = 'skeleton-typescript-webpack'
+        break;
+      case ['Typescript', 'JSPM', true]:
+        skeleton = 'skeleton-typescript-aps.net5'
+        break;
+      case ['Typescript', 'JSPM', false]:
+        skeleton = 'skeleton-typescript'
+        break;
+      case ['ES 2016', 'Webpack', undefined]:
+        skeleton = 'skeleton-es2016-webpack'
+        break;
+      case ['ES 2016', 'JSPM', true]:
+        skeleton = 'skeleton-es2016-aps.net5'
+        break;
+      case ['ES 2016', 'JSPM', false]:
+        skeleton = 'skeleton-es2016-webpack'
+        break;
+      default:
+
+    }
 
     current.fs.copy(
-      current.templatePath('static/**/*'),
+      current.templatePath(skeleton + '/static/**/*'),
       current.destinationRoot()
     );
     current.fs.copyTpl(
-      current.templatePath('temp/main/**/*'),
+      current.templatePath(skeleton + '/temp/**/*'),
       current.destinationRoot(),
       current.props
     );
     plugins.forEach(function (element) {
       if (current.props.plugins.includes(element)) {
         current.fs.copy(
-          current.templatePath('temp/plugins/' + element + '/static/**/*'),
+          current.templatePath(skeleton + '/plugins/' + element + '/static/**/*'),
           current.destinationRoot()
         );
         current.fs.copyTpl(
-          current.templatePath('temp/plugins/' + element + '/temp/**/*'),
+          current.templatePath(skeleton + 'temp/plugins/' + element + '/temp/**/*'),
           current.destinationRoot(),
           current.props
         );

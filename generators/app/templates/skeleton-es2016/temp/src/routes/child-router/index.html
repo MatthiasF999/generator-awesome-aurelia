@@ -10,7 +10,11 @@
         </ul>
       </div>
       <div class="col-md-10" style="padding: 0">
-        <router-view swap-order="after"></router-view>
+        <% if (plugin.includes('aurelia-animator-css')) { -%>
+          <router-view swap-order="after"></router-view>
+        <% } else { -%>
+          <router-view></router-view>
+        <% } -%>
       </div>
     </div>
   </section>

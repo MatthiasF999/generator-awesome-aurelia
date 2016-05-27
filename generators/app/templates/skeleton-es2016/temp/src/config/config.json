@@ -1,0 +1,84 @@
+{
+  "name": "<%= appName %>",
+  <% if (plugin.includes('aurelia-i18n')) { -%>
+    "i18n": {
+      "backend": {
+        "loadPath": "/locales/{{lng}}/{{ns}}.json"
+      },
+      "lng" : "de",
+      "attributes" : ["t","i18n"],
+      "fallbackLng" : "en",
+      "debug" : false,
+      "namespaces": ["translation","nav"],
+      "defaultNs": "translation"
+    },
+  <% } -%>
+  <% if (plugin.includes('aurelia-notification')) { -%>
+    "notification": {
+      "translate": true,
+      "notifications": {
+        "success": "humane-libnotify-success",
+        "error": "humane-libnotify-error",
+        "info": "humane-libnotify-info"
+      }
+    },
+  <% } -%>
+  <% if (plugin.includes('aurelia-google-analytics')) { -%>
+    "google-analytics": {
+      "tracking-id": "<%= googleanalytics_id %>",
+      "config": {
+        "logging": {
+          "enabled": true
+        },
+        "pageTracking": {
+          "enabled": false
+        },
+        "clickTracking": {
+          "enabled": false
+        }
+      }
+    },
+  <% } -%>
+  <% if (plugin.includes('aurelia-auth')) { -%>
+    "auth": {
+      "providers": {
+        <% auth_providers.forEach(function(provider, index, providers){ -%>
+          "<%= provider %>": "<%= auth[provider][1] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
+        <% }); %>
+      }
+    },
+  <% } -%>
+  "development": {
+    "env": "development"
+  },
+  "staging": {
+    "env": "staging"
+  },
+  "production": {
+    <% if (plugin.includes('aurelia-google-analytics')) { -%>
+      "google-analytics": {
+        "config": {
+          "logging": {
+            "enabled": false
+          },
+          "pageTracking": {
+            "enabled": true
+          },
+          "clickTracking": {
+            "enabled": true
+          }
+        }
+      },
+    <% } -%>
+    <% if (plugin.includes('aurelia-auth')) { -%>
+      "auth": {
+        "providers": {
+          <% auth_providers.forEach(function(provider, index, providers){ -%>
+            "<%= provider %>": "<%= auth[provider][0] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
+          <% }); %>
+        }
+      },
+    <% } -%>
+    "env": "production"
+  }
+}

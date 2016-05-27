@@ -5,6 +5,10 @@
   <nav-bar router.bind="router"></nav-bar>
 
   <div class="page-host">
-    <router-view></router-view>
+    <% if (plugin.includes('aurelia-animator-css')) { -%>
+      <router-view swap-order="after"></router-view>
+    <% } else { -%>
+      <router-view></router-view>
+    <% } -%>
   </div>
 </template>

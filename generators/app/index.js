@@ -1,7 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+var yeoman = require('yeoman-generator'),
+  chalk = require('chalk'),
+  yosay = require('yosay'),
+  pluginGenerator = ['skeleton-es2016'];
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -35,195 +36,232 @@ module.exports = yeoman.Base.extend({
         when: function (answers) {
           return answers.transpiler === 'ES 2016';
         }
-      }, {
-        type: 'checkbox',
-        name: 'plugins',
-        message: 'Which plugins do you want to use?',
-        choices: [
-          'aurelia-animator-css',
-          'aurelia-dialog',
-          'aurelia-validatejs',
-          'aurelia-dragula',
-          'aurelia-auth',
-          'aurelia-google-analytics',
-          'aurelia-notify',
-          'aurelia-ui-virtualization',
-          'aurelia-i18n',
-          'aurelia-breeze',
-          'momentjs'
-        ],
-        when: function (answers) {
-          return answers.dotNet === false;
-        }
-      }, {
-        name: 'auth_providers',
-        message: 'What authorization methods do you want to support?',
-        type: 'checkbox',
-        choices: [
-          'facebook',
-          'google',
-          'github',
-          'instagram',
-          'linkedin',
-          'twitter',
-          'twitch',
-          'live',
-          'yahoo',
-          'bitbucket'
-        ],
-        when: function (answers) {
-          return answers.plugins.includes('aurelia-auth');
-        }
-      }, {
-        name: 'configuration_urls',
-        message: 'What will be the urls of your app (insert as comma seperated values)',
-        type: 'input',
-        filter: function (str) {
-          if (str === '') {
-            str = 'webseite.tld';
-          }
-          return str.split(/,\s*/);
-        },
-        validate: function (input) {
-          if (input.every(function (element) {
-            return element.split('.').length >= 2;
-          })) {
-            return true;
-          }
-          return 'Please enter valid urls';
-        },
-        when: function (answers) {
-          return answers.plugins.includes('aurelia-configuration');
-        }
-      }, {
-        name: 'googleanalytics_id',
-        message: 'What is your google analytics ID?',
-        type: 'input',
-        when: function (answers) {
-          return answers.plugins.includes('aurelia-google-analytics');
-        }
-      }, {
-        name: 'i18n_languages',
-        message: 'What languages do you want to have (insert as comma seperated values, the first entry is the default language, the second the fallback)',
-        type: 'input',
-        filter: function (str) {
-          return str.split(/,\s*/);
-        },
-        validate: function (input) {
-          if (input.length >= 2) {
-            return true;
-          }
-          return 'Please enter as comma seperated values';
-        },
-        when: function (answers) {
-          return answers.plugins.includes('aurelia-i18n');
-        }
       }
     ];
-
     return this.prompt(prompts).then(function (props) {
+      switch (true) {
+        case props.transpiler === 'Typescript' && props.bundler ==='Webpack':
+          props.skeleton = 'skeleton-typescript-webpack';
+          break;
+        case props.transpiler === 'Typescript' && props.bundler ==='JSPM' && props.dotNet === true:
+          props.skeleton = 'skeleton-typescript-aps.net5';
+          break;
+        case props.transpiler === 'Typescript' && props.bundler ==='JSPM':
+          props.skeleton = 'skeleton-typescript';
+          break;
+        case props.bundler ==='Webpack':
+          props.skeleton = 'skeleton-es2016-webpack';
+          break;
+        case props.bundler ==='JSPM' && props.dotNet === true:
+          props.skeleton = 'skeleton-es2016-aps.net5';
+          break;
+        default:
+          props.skeleton = 'skeleton-es2016';
+      }
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
 
+  plugins: function () {
+    if (pluginGenerator.includes(this.props.skeleton)) {
+
+      let prompts = [
+        {
+          name: 'url',
+          message: 'What will be the url of your app?',
+          type: 'input',
+          default: 'website.com'
+        }, {
+          type: 'checkbox',
+          name: 'list',
+          message: 'Which plugins do you want to use?',
+          choices: [
+            {
+              name: 'aurelia-animator-css',
+              checked: true
+            }, {
+              name: 'aurelia-dialog',
+              checked: true
+            }, {
+              name: 'aurelia-validatejs',
+              checked: true
+            }, {
+              name: 'aurelia-dragula',
+              checked: true
+            }, {
+              name: 'aurelia-auth',
+              checked: true
+            }, {
+              name: 'aurelia-google-analytics',
+              checked: true
+            }, {
+              name: 'aurelia-notify',
+              checked: true
+            }, {
+              name: 'aurelia-ui-virtualization',
+              checked: true
+            }, {
+              name: 'aurelia-i18n',
+              checked: true
+            }, {
+              name: 'aurelia-breeze',
+              checked: true
+            }, {
+              name: 'momentjs',
+              checked: true
+            }
+          ]
+        }, {
+          name: 'auth_providers',
+          message: 'What authorization methods do you want to support?',
+          type: 'checkbox',
+          choices: [
+            {
+              name: 'facebook'
+            }, {
+              name: 'google',
+              checked: true
+            }, {
+              name: 'github',
+              checked: true
+            }, {
+              name: 'instagram',
+              checked: true
+            }, {
+              name: 'linkedin'
+            }, {
+              name: 'twitter'
+            }, {
+              name: 'twitch'
+            }, {
+              name: 'live'
+            }, {
+              name: 'yahoo'
+            }, {
+              name: 'bitbucket'
+            }
+          ],
+          when: function (answers) {
+            console.log(answers);
+            return answers.list.includes('aurelia-auth');
+          }
+        }, {
+          name: 'googleanalytics_id',
+          message: 'What is your google analytics ID?',
+          type: 'input',
+          default: 'analytics',
+          when: function (answers) {
+            return answers.list.includes('aurelia-google-analytics');
+          }
+        }, {
+          name: 'i18n_languages',
+          message: 'What languages do you want to have (insert as comma seperated values, the first entry is the default language, the second the fallback)',
+          type: 'input',
+          default: 'en, de, tr',
+          filter: function (str) {
+            return str.split(/,\s*/);
+          },
+          validate: function (input) {
+            if (input.length >= 2) {
+              return true;
+            }
+            return 'Please enter as comma seperated values';
+          },
+          when: function (answers) {
+            return answers.list.includes('aurelia-i18n');
+          }
+        }
+      ];
+
+      return this.prompt(prompts).then(function (props) {
+        this.plugins = props;
+        // To access props later use this.plugins.someAnswer;
+      }.bind(this));
+    }
+  },
+
   auths: function () {
     let prompts = [];
 
-    if (this.props.plugins.includes('aurelia-auth')) {
-      this.props.auth_providers.forEach(function (provider) {
-        prompts.push({
-          name: provider,
-          message: 'Please enter your ' + provider + ' clientId (productionid, developementid)',
-          type: 'input',
-          filter: function (str) {
-            var array = str.split(/,\s*/);
-            if (array.length === 1) {
-              array.push(array[0]);
+    if (pluginGenerator.includes(this.props.skeleton)) {
+      if (this.plugins.list.includes('aurelia-auth')) {
+        this.plugins.auth_providers.forEach(function (provider) {
+          prompts.push({
+            name: provider,
+            message: 'Please enter your ' + provider + ' clientId (productionid, developementid)',
+            type: 'input',
+            default: 'd_' + provider,
+            filter: function (str) {
+              var array = str.split(/,\s*/);
+              if (array.length === 1) {
+                array.push(array[0]);
+              }
+              return array;
+            },
+            validate: function (input) {
+              if (input.length >= 1 && input[0] !== '' && input.length <= 2) {
+                return true;
+              }
+              if (input[0] === '') {
+                return 'Please enter at least one value';
+              }
+              return 'Please enter maximum two values';
             }
-            return array;
-          },
-          validate: function (input) {
-            if (input.length >= 1 && input[0] !== '' && input.length <= 2) {
-              return true;
-            }
-            if (input[0] === '') {
-              return 'Please enter at least one value';
-            }
-            return 'Please enter maximum two values';
-          }
+          });
         });
-      });
+      }
     }
 
     return this.prompt(prompts).then(function (props) {
-      this.props.auth = props;
-      // To access props later use this.props.someAnswer;
+      this.auth = props;
+      // To access props later use this.auth.someAnswer;
     }.bind(this));
   },
 
   config: function () {
-    let root = this.props.app_name;
-    
+    let root = this.props.appName;
+
     this.destinationRoot(root + '/');
     this.config.save();
   },
 
   writing: function () {
-    let plugins = ['aurelia-auth', 'aurelia-configuration'],
+    let plugins = ['aurelia-auth'],
       current = this,
-      skeleton = '',
-      plugins = ['aurelia-auth'];
+      template = {
+        main: this.props,
+        plugins: this.plugins
+      };
 
-    switch ([this.props.transpiler, this.props.bundler, this.props.dotNet]) {
-      case ['Typescript', 'Webpack', undefined]:
-        skeleton = 'skeleton-typescript-webpack'
-        break;
-      case ['Typescript', 'JSPM', true]:
-        skeleton = 'skeleton-typescript-aps.net5'
-        break;
-      case ['Typescript', 'JSPM', false]:
-        skeleton = 'skeleton-typescript'
-        break;
-      case ['ES 2016', 'Webpack', undefined]:
-        skeleton = 'skeleton-es2016-webpack'
-        break;
-      case ['ES 2016', 'JSPM', true]:
-        skeleton = 'skeleton-es2016-aps.net5'
-        break;
-      case ['ES 2016', 'JSPM', false]:
-        skeleton = 'skeleton-es2016-webpack'
-        break;
-      default:
-
-    }
+    template.plugins.auth = this.auth
 
     current.fs.copy(
-      current.templatePath(skeleton + '/static/**/*'),
-      current.destinationRoot()
+      current.templatePath(current.props.skeleton + '/static/**/*'),
+      current.destinationPath('static')
     );
     current.fs.copyTpl(
-      current.templatePath(skeleton + '/temp/**/*'),
+      current.templatePath(current.props.skeleton + '/temp/**/*'),
       current.destinationRoot(),
-      current.props
+      template
     );
-    plugins.forEach(function (element) {
-      if (current.props.plugins.includes(element)) {
+    plugins.forEach(function (plugin) {
+      if (current.plugins.list.includes(plugin)) {
         current.fs.copy(
-          current.templatePath(skeleton + '/plugins/' + element + '/static/**/*'),
-          current.destinationRoot()
+          current.templatePath(current.props.skeleton + '/plugins/' + plugin + '/static/**/*'),
+          current.destinationPath('static')
         );
         current.fs.copyTpl(
-          current.templatePath(skeleton + 'temp/plugins/' + element + '/temp/**/*'),
+          current.templatePath(current.props.skeleton + 'temp/plugins/' + plugin + '/temp/**/*'),
           current.destinationRoot(),
-          current.props
+          template
         );
       }
     });
     this.destinationRoot('./');
-    if (current.props.plugins.includes('aurelia-i18n')) {
-      current.props.i18n_languages.forEach(function (element) {
-        current.composeWith('aurelia-es2016:i18n', {args: [element]});
+    if (current.plugins.list.includes('aurelia-i18n')) {
+      current.plugins.i18n_languages.forEach(function (lang) {
+        current.composeWith('aurelia-es2016:i18n', {args: [lang]});
       });
     }
   },

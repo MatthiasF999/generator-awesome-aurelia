@@ -2,9 +2,9 @@ module.exports = {
   'list': [
     'index.html',
     '_styles/styles.css',
-    <% if (plugin.includes('aurelia-i18n')) { %>
-      'locales/**/*.json',
-    <% } %>
+<% if (plugins.list.includes('aurelia-i18n')) { -%>
+    'locales/**/*.json',
+<% } -%>
     'config.js',
     'favicon.ico',
     'LICENSE',

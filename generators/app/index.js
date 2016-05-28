@@ -74,7 +74,7 @@ module.exports = yeoman.Base.extend({
           default: 'website.com'
         }, {
           type: 'checkbox',
-          name: 'list',
+          name: 'pluginlist',
           message: 'Which plugins do you want to use?',
           choices: [
             {
@@ -144,7 +144,7 @@ module.exports = yeoman.Base.extend({
           ],
           when: function (answers) {
             console.log(answers);
-            return answers.list.includes('aurelia-auth');
+            return answers.pluginlist.includes('aurelia-auth');
           }
         }, {
           name: 'googleanalytics_id',
@@ -152,7 +152,7 @@ module.exports = yeoman.Base.extend({
           type: 'input',
           default: 'analytics',
           when: function (answers) {
-            return answers.list.includes('aurelia-google-analytics');
+            return answers.pluginlist.includes('aurelia-google-analytics');
           }
         }, {
           name: 'i18n_languages',
@@ -169,7 +169,7 @@ module.exports = yeoman.Base.extend({
             return 'Please enter as comma seperated values';
           },
           when: function (answers) {
-            return answers.list.includes('aurelia-i18n');
+            return answers.pluginlist.includes('aurelia-i18n');
           }
         }
       ];
@@ -185,7 +185,7 @@ module.exports = yeoman.Base.extend({
     let prompts = [];
 
     if (pluginGenerator.includes(this.props.skeleton)) {
-      if (this.plugins.list.includes('aurelia-auth')) {
+      if (this.plugins.pluginlist.includes('aurelia-auth')) {
         this.plugins.auth_providers.forEach(function (provider) {
           prompts.push({
             name: provider,
@@ -223,7 +223,9 @@ module.exports = yeoman.Base.extend({
     let root = this.props.appName;
 
     this.destinationRoot(root + '/');
-    this.config.save();
+    this.config.set(this.props);
+    this.config.set(this.plugins);
+    this.config.set(this.auth)
   },
 
   writing: function () {
@@ -246,7 +248,7 @@ module.exports = yeoman.Base.extend({
       template
     );
     plugins.forEach(function (plugin) {
-      if (current.plugins.list.includes(plugin)) {
+      if (current.plugins.pluginlist.includes(plugin)) {
         current.fs.copy(
           current.templatePath(current.props.skeleton + '/plugins/' + plugin + '/static/**/*'),
           current.destinationRoot()
@@ -259,7 +261,7 @@ module.exports = yeoman.Base.extend({
       }
     });
     this.destinationRoot('./');
-    if (current.plugins.list.includes('aurelia-i18n')) {
+    if (current.plugins.pluginlist.includes('aurelia-i18n')) {
       current.plugins.i18n_languages.forEach(function (lang) {
         current.composeWith('aurelia-es2016:i18n', {args: [lang]});
       });

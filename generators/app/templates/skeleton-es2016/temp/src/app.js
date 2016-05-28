@@ -1,4 +1,4 @@
-<% if (plugins.list.includes('aurelia-auth')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {FetchConfig} from 'aurelia-auth';
@@ -7,7 +7,7 @@ import AppRouterConfig from 'app.router.config';
 @inject(Router, FetchConfig, AppRouterConfig)
 <% } -%>
 export class App {
-<% if (plugins.list.includes('aurelia-auth')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
     constructor(router, fetchConfig, appRouterConfig) {
       this.router = router;
       this.fetchConfig = fetchConfig;

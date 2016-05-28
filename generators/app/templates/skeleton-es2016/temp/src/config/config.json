@@ -1,6 +1,6 @@
 {
   "name": "<%= main.appName %>",
-<% if (plugins.list.includes('aurelia-i18n')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-i18n')) { -%>
   "i18n": {
     "backend": {
       "loadPath": "/locales/{{lng}}/{{ns}}.json"
@@ -13,7 +13,7 @@
     "defaultNs": "translation"
   },
 <% } -%>
-<% if (plugins.list.includes('aurelia-notification')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-notification')) { -%>
   "notification": {
     "translate": true,
     "notifications": {
@@ -23,7 +23,7 @@
     }
   },
 <% } -%>
-<% if (plugins.list.includes('aurelia-google-analytics')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
   "google-analytics": {
     "tracking-id": "<%= plugins.googleanalytics_id %>",
     "config": {
@@ -39,7 +39,7 @@
     }
   },
 <% } -%>
-<% if (plugins.list.includes('aurelia-auth')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
   "auth": {
     "providers": {
 <% plugins.auth_providers.forEach(function(provider, index, providers){ -%>
@@ -55,7 +55,7 @@
     "env": "staging"
   },
   "production": {
-<% if (plugins.list.includes('aurelia-google-analytics')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
     "google-analytics": {
       "config": {
         "logging": {
@@ -70,7 +70,7 @@
       }
     },
 <% } -%>
-<% if (plugins.list.includes('aurelia-auth')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
       "auth": {
         "providers": {
 <% plugins.auth_providers.forEach(function(provider, index, providers){ -%>

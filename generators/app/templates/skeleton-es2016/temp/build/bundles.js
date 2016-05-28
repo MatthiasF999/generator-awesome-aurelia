@@ -2,7 +2,7 @@ module.exports = {
   'bundles': {
     'dist/app-build': {
       'includes': [
-<% if (plugins.list.includes('aurelia-validatejs')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-validatejs')) { -%>
         'momentjs',
 <% } -%>
         '[**/*.js]',
@@ -32,38 +32,38 @@ module.exports = {
         'aurelia-history-browser',
         'aurelia-logging-console',
         'aurelia-configuration',
-<% if (plugins.list.includes('aurelia-validatejs')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-validatejs')) { -%>
         'aurelia-validatejs',
         'aurelia-validatejs/validate-binding-behavior',
 <% } -%>
-<% if (plugins.list.includes('aurelia-ui-virtualization')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-ui-virtualization')) { -%>
         'aurelia-ui-virtualization',
 <% } -%>
-<% if (plugins.list.includes('aurelia-dialog')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-dialog')) { -%>
         'aurelia-dialog',
         'aurelia-dialog/resources/*.html!text',
         'aurelia-dialog/dialog.css!text',
 <% } -%>
-<% if (plugins.list.includes('aurelia-notification')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-notification')) { -%>
         'aurelia-notification',
         'humane-js',
 <% } -%>
-<% if (plugins.list.includes('aurelia-google-analytics')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
         'aurelia-google-analytics',
 <% } -%>
-<% if (plugins.list.includes('aurelia-breeze')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-breeze')) { -%>
         'aurelia-breeze',
 <% } -%>
-<% if (plugins.list.includes('aurelia-dragula')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-dragula')) { -%>
         'aurelia-dragula',
         'aurelia-dragula/dragula-and-drop',
         'aurelia-dragula/dragula.css!text',
 <% } -%>
-<% if (plugins.list.includes('aurelia-auth')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
         'aurelia-auth',
         'aurelia-auth/auth-filter',
 <% } -%>
-<% if (plugins.list.includes('aurelia-i18n')) { -%>
+<% if (plugins.pluginlist.includes('aurelia-i18n')) { -%>
         'aurelia-i18n',
         'i18next-xhr-backend',
 <% } -%>

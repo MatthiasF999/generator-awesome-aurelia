@@ -2,11 +2,11 @@
   "name": "generator-awesome-aurelia",
   "version": "0.0.0",
   "description": "An aurelia generator",
-  "homepage": "",
+  "homepage": "https://github.com/MatthiasF999/generator-awesome-aurelia",
   "author": {
     "name": "Matthias Feldmann",
     "email": "matthias@feldmann.hamburg",
-    "url": ""
+    "url": "https://github.com/MatthiasF999"
   },
   "files": [
     "generators"
@@ -17,10 +17,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "acorn": "^3.1.0",
-    "aurelia-binding": "^1.0.0-beta.1.3.6",
     "chalk": "^1.0.0",
-    "espree": "^3.1.4",
     "merge": "^1.2.0",
     "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.23.0",

@@ -238,7 +238,7 @@ module.exports = yeoman.Base.extend({
 
     current.fs.copy(
       current.templatePath(current.props.skeleton + '/static/**/*'),
-      current.destinationPath('static')
+      current.destinationRoot()
     );
     current.fs.copyTpl(
       current.templatePath(current.props.skeleton + '/temp/**/*'),
@@ -249,7 +249,7 @@ module.exports = yeoman.Base.extend({
       if (current.plugins.list.includes(plugin)) {
         current.fs.copy(
           current.templatePath(current.props.skeleton + '/plugins/' + plugin + '/static/**/*'),
-          current.destinationPath('static')
+          current.destinationRoot()
         );
         current.fs.copyTpl(
           current.templatePath(current.props.skeleton + 'temp/plugins/' + plugin + '/temp/**/*'),

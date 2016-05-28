@@ -1,7 +1,7 @@
 import 'bootstrap';
 import {Configure} from 'aurelia-configuration';
 <% if (plugins.list.includes('aurelia-i18n')) { -%>
-  import Backend from 'i18next-xhr-backend';
+import Backend from 'i18next-xhr-backend';
 <% } -%>
 
 

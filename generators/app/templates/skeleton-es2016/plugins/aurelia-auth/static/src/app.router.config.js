@@ -17,12 +17,12 @@ export default class {
       config.addPipelineStep('authorize', AuthorizeStep);
 
       config.map([
-        { route: ['', 'welcome'], name: 'welcome',      moduleId: 'routes/welcome/index',       nav: true,  title: 'Welcome' },
-        { route: 'users',         name: 'users',        moduleId: 'routes/users/index',         nav: true,  title: 'Github Users' },
-        { route: 'child-router',  name: 'child-router', moduleId: 'routes/child-router/index',  nav: true,  title: 'Child Router',  auth: true},
-        { route: 'signup',                              moduleId: 'routes/auth/signup',         nav: false, title: 'Signup' },
-        { route: 'login',                               moduleId: 'routes/auth/login',          nav: false, title: 'Login' },
-        { route: 'logout',                              moduleId: 'routes/auth/logout',         nav: false, title: 'Logout' }
+        { route: ['', 'welcome'], name: 'welcome', moduleId: 'routes/welcome/index', nav: true, title: 'Welcome', auth: false },
+        { route: 'users', name: 'users', moduleId: 'routes/users/index',         nav: true, title: 'Github Users', auth: false },
+        { route: 'child-router', name: 'child-router', moduleId: 'routes/child-router/index', nav: true, title: 'Child Router', auth: false },
+        { route: 'signup', moduleId: 'routes/auth/signup', nav: false, title: 'Signup' },
+        { route: 'login', moduleId: 'routes/auth/login', nav: false, title: 'Login' },
+        { route: 'logout', moduleId: 'routes/auth/logout', nav: false, title: 'Logout' }
 
       ]);
     };

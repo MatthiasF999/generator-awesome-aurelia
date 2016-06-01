@@ -158,7 +158,7 @@ module.exports = yeoman.Base.extend({
           name: 'i18n_languages',
           message: 'What languages do you want to have (insert as comma seperated values, the first entry is the default language, the second the fallback)',
           type: 'input',
-          default: 'en, de, tr',
+          default: 'de, en',
           filter: function (str) {
             return str.split(/,\s*/);
           },
@@ -263,14 +263,17 @@ module.exports = yeoman.Base.extend({
     this.destinationRoot('./');
     if (current.plugins.pluginlist.includes('aurelia-i18n')) {
       current.plugins.i18n_languages.forEach(function (lang) {
-        current.composeWith('aurelia-es2016:i18n', {args: [lang]});
+        current.composeWith('awesome-aurelia:i18n', {args: [lang]});
       });
     }
   },
-  install: function () {
-    // this.installDependencies();
+  installnpm: function () {
+    this.npmInstall();
+  },
+  installjspm: function () {
+    this.spawnCommand('jspm', ['install', '-y']);
   },
   end: function () {
-    // this.spawnCommand('jspm', ['install', '-y']);
+    this.spawnCommand('gulp', ['watch']);
   }
 });

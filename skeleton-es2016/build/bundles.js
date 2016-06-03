@@ -15,7 +15,6 @@ module.exports = {
         'rev': true
       }
     },
-<<<<<<< HEAD
     'dist/aurelia': {
       'includes': [
         'aurelia-framework',
@@ -52,26 +51,6 @@ module.exports = {
         'text',
         'jquery',
         'fetch'
-=======
-    "dist/aurelia": {
-      "includes": [
-        "aurelia-framework",
-        "aurelia-bootstrapper",
-        "aurelia-fetch-client",
-        "aurelia-router",
-        "aurelia-animator-css",
-        "aurelia-templating-binding",
-        "aurelia-polyfills",
-        "aurelia-templating-resources",
-        "aurelia-templating-router",
-        "aurelia-loader-default",
-        "aurelia-history-browser",
-        "aurelia-logging-console",
-        "bootstrap",
-        "bootstrap/css/bootstrap.css!text",
-        "jquery",
-        "fetch"
->>>>>>> 9e2aa28546f37c98d62dbd2259dc03cf20495524
       ],
       'options': {
         'inject': true,

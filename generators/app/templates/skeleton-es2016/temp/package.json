@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD:generators/app/templates/skeleton-es2016/temp/package.json
   "name": "<%= main.appName -%>",
   "version": "1.0.0-beta.1.2.5",
+=======
+  "name": "aurelia-skeleton-navigation",
+  "version": "1.0.0-beta.1.2.6",
+>>>>>>> be5cf8409c2998375995d90b1bd8f2d78f28c249:generators/app/templates/skeleton-es2016/package.json
   "description": "A starter kit for building a standard navigation-style app with Aurelia.",
   "keywords": [
     "aurelia",
@@ -72,7 +77,7 @@
       "momentjs": "npm:momentjs@^1.1.7",
 <% } -%>
 <% if (plugins.pluginlist.includes('aurelia-validatejs')) { -%>
-      "aurelia-auth": "npm:aurelia-auth@^2.1.3",
+      "aurelia-auth": "npm:aurelia-auth@^3.0.1",
 <% } -%>
 <% if (plugins.pluginlist.includes('aurelia-validatejs')) { -%>
       "aurelia-breeze": "npm:aurelia-breeze@^1.2.0",

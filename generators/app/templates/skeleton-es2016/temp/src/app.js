@@ -21,6 +21,8 @@ export class App {
 <% } else { -%>
     configureRouter(config, router) {
       config.title = 'Aurelia';
+      config.options.pushState = true;
+      config.options.hashChange = false;
       config.map([
         { route: ['', 'welcome'], name: 'welcome', moduleId: 'routes/welcome/index', nav: true, title: 'Welcome' },
         { route: 'users', name: 'users', moduleId: 'routes/users/index',         nav: true,  title: 'Github Users' },

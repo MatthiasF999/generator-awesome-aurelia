@@ -3,9 +3,11 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-awesome-aurelia using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [jspm](http://jspm.io), [gulp](http://gulpjs.com), [Yeoman](http://yeoman.io) and generator-awesome-aurelia using [npm](https://www.npmjs.com/) (we assume you have pre-installed the newest (> 6.0.0) [node.js](https://nodejs.org/)).
 
 ```bash
+npm install -g jspm
+npm install -g gulp
 npm install -g yo
 npm install -g generator-awesome-aurelia
 ```
@@ -16,6 +18,24 @@ Then generate your new project:
 yo awesome-aurelia
 ```
 
+## Adding a route
+Run:
+
+```bash
+yo awesome-aurelia:route
+```
+
+This will generate the necessary files and folders, based on your answers
+
+## Adding a language
+Run the command and replace LANGUAGE with the shortform of the language
+
+```bash
+yo awesome-aurelia:i18n LANGUAGE
+```
+
+This will generate the necessary files and folders
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
@@ -25,7 +45,7 @@ yo awesome-aurelia
 
 ## License
 
-Apache-2.0 © [Matthias Feldmann]()
+Apache-2.0 © [Matthias Feldmann](https://github.com/MatthiasF999)
 
 
 [npm-image]: https://badge.fury.io/js/generator-awesome-aurelia.svg
@@ -34,5 +54,5 @@ Apache-2.0 © [Matthias Feldmann]()
 [travis-url]: https://travis-ci.org/MatthiasF999/generator-awesome-aurelia
 [daviddm-image]: https://david-dm.org/MatthiasF999/generator-awesome-aurelia.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/MatthiasF999/generator-awesome-aurelia
-[coveralls-image]: https://coveralls.io/repos/MatthiasF999/generator-awesome-aurelia/badge.svg
-[coveralls-url]: https://coveralls.io/r/MatthiasF999/generator-awesome-aurelia
+[coveralls-image]: https://coveralls.io/repos/github/MatthiasF999/generator-awesome-aurelia/badge.svg
+[coveralls-url]: https://coveralls.io/github/MatthiasF999/generator-awesome-aurelia

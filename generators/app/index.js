@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator'),
   chalk = require('chalk'),
   yosay = require('yosay'),
+  mkdirp = require('mkdirp'),
   pluginGenerator = ['skeleton-es2016'];
 
 module.exports = yeoman.Base.extend({
@@ -15,7 +16,17 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'appName',
-        message: 'What is the name of your app?'
+        message: 'What is the name of your app?',
+        default: 'name'
+      }, {
+        type: 'input',
+        name: 'appDescription',
+        message: 'What is your app about?',
+        default: 'description'
+      }, {
+        type: 'input',
+        name: 'git',
+        message: 'What is your git repository'
       }, {
         type: 'list',
         name: 'transpiler',
@@ -88,28 +99,28 @@ module.exports = yeoman.Base.extend({
               checked: true
             }, {
               name: 'aurelia-dragula',
-              checked: true
+              checked: false
             }, {
               name: 'aurelia-auth',
               checked: true
             }, {
               name: 'aurelia-google-analytics',
-              checked: true
+              checked: false
             }, {
               name: 'aurelia-notify',
-              checked: true
+              checked: false
             }, {
               name: 'aurelia-ui-virtualization',
-              checked: true
+              checked: false
             }, {
               name: 'aurelia-i18n',
-              checked: true
+              checked: false
             }, {
               name: 'aurelia-breeze',
-              checked: true
+              checked: false
             }, {
               name: 'momentjs',
-              checked: true
+              checked: false
             }
           ]
         }, {
@@ -118,28 +129,35 @@ module.exports = yeoman.Base.extend({
           type: 'checkbox',
           choices: [
             {
-              name: 'facebook'
+              name: 'facebook',
+              checked: false
             }, {
               name: 'google',
               checked: true
             }, {
               name: 'github',
-              checked: true
+              checked: false
             }, {
               name: 'instagram',
-              checked: true
+              checked: false
             }, {
-              name: 'linkedin'
+              name: 'linkedin',
+              checked: false
             }, {
-              name: 'twitter'
+              name: 'twitter',
+              checked: false
             }, {
-              name: 'twitch'
+              name: 'twitch',
+              checked: false
             }, {
-              name: 'live'
+              name: 'live',
+              checked: false
             }, {
-              name: 'yahoo'
+              name: 'yahoo',
+              checked: false
             }, {
-              name: 'bitbucket'
+              name: 'bitbucket',
+              checked: false
             }
           ],
           when: function (answers) {
@@ -229,42 +247,53 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    let plugins = ['aurelia-auth'],
-      current = this,
-      template = {
-        main: this.props,
-        plugins: this.plugins
-      };
+    if (pluginGenerator.includes(this.props.skeleton)) {
 
-    template.plugins.auth = this.auth
+      let plugins = ['aurelia-auth'],
+        current = this,
+        template = {
+          main: this.props,
+          plugins: this.plugins
+        };
 
-    current.fs.copy(
-      current.templatePath(current.props.skeleton + '/static/**/*'),
-      current.destinationRoot()
-    );
-    current.fs.copyTpl(
-      current.templatePath(current.props.skeleton + '/temp/**/*'),
-      current.destinationRoot(),
-      template
-    );
-    plugins.forEach(function (plugin) {
-      if (current.plugins.pluginlist.includes(plugin)) {
-        current.fs.copy(
-          current.templatePath(current.props.skeleton + '/plugins/' + plugin + '/static/**/*'),
-          current.destinationRoot()
-        );
-        current.fs.copyTpl(
-          current.templatePath(current.props.skeleton + 'temp/plugins/' + plugin + '/temp/**/*'),
-          current.destinationRoot(),
-          template
-        );
-      }
-    });
-    this.destinationRoot('./');
-    if (current.plugins.pluginlist.includes('aurelia-i18n')) {
-      current.plugins.i18n_languages.forEach(function (lang) {
-        current.composeWith('awesome-aurelia:i18n', {args: [lang]});
+      template.plugins.auth = this.auth
+
+      current.fs.copy(
+        current.templatePath(current.props.skeleton + '/static/**/*'),
+        current.destinationRoot()
+      );
+      current.fs.copyTpl(
+        current.templatePath(current.props.skeleton + '/temp/**/*'),
+        current.destinationRoot(),
+        template
+      );
+      ['models', 'resources', 'services'].forEach((element) => {
+        mkdirp(current.destinationRoot() + '/src/' + element);
+      })
+      plugins.forEach(function (plugin) {
+        if (current.plugins.pluginlist.includes(plugin)) {
+          current.fs.copy(
+            current.templatePath(current.props.skeleton + '/plugins/' + plugin + '/static/**/*'),
+            current.destinationRoot()
+          );
+          current.fs.copyTpl(
+            current.templatePath(current.props.skeleton + 'temp/plugins/' + plugin + '/temp/**/*'),
+            current.destinationRoot(),
+            template
+          );
+        }
       });
+      this.destinationRoot('./');
+      if (current.plugins.pluginlist.includes('aurelia-i18n')) {
+        current.plugins.i18n_languages.forEach(function (lang) {
+          current.composeWith('awesome-aurelia:i18n', {args: [lang]});
+        });
+      }
+    } else {
+      current.fs.copy(
+        current.templatePath(current.props.skeleton + '/**/*'),
+        current.destinationRoot()
+      );
     }
   },
   installnpm: function () {
@@ -272,6 +301,15 @@ module.exports = yeoman.Base.extend({
   },
   installjspm: function () {
     this.spawnCommand('jspm', ['install', '-y']);
+  },
+  git: function() {
+    if (this.props.git) {
+      this.spawnCommandSync('git', ['init']);
+      this.spawnCommandSync('git', ['remote', 'add', 'origin', this.props.git]);
+      this.spawnCommandSync('git', ['add', '--all']);
+      this.spawnCommandSync('git', ['commit', '-m', '"initial commit from generator"']);
+      this.spawnCommandSync('git', ['push', '-u', 'origin', 'master']);
+    }
   },
   end: function () {
     this.spawnCommand('gulp', ['watch']);

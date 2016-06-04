@@ -35,7 +35,7 @@ describe('aurelia skeleton app', function() {
   });
 
   it('should navigate to users page', () => {
-    poSkeleton.navigateTo('#/users');
+    poSkeleton.navigateTo('/users');
     expect(poSkeleton.getCurrentPageTitle()).toBe('Github Users | Aurelia');
   });
 });

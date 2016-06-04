@@ -1,4 +1,4 @@
-import {Users} from '../../src/users';
+import {Users} from '../../src/routes/users/index';
 
 class HttpStub {
   fetch(url) {

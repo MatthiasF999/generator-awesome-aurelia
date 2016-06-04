@@ -1,6 +1,6 @@
 {
   "name": "generator-awesome-aurelia",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An aurelia generator",
   "homepage": "https://github.com/MatthiasF999/generator-awesome-aurelia",
   "author": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "merge": "^1.2.0",
+    "mkdirp": "^0.5.1",
     "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"

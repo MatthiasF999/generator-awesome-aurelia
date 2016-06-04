@@ -6,6 +6,17 @@ var yeoman = require('yeoman-generator'),
   pluginGenerator = ['skeleton-es2016'];
 
 module.exports = yeoman.Base.extend({
+  constructor: function () {
+    this.option('skip-install', {
+      desc: 'Skip installation after generate app',
+      required: false
+    });
+    this.option('skip-git', {
+      desc: 'Skip installation after generate app',
+      required: false
+    });
+  },
+
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -26,7 +37,10 @@ module.exports = yeoman.Base.extend({
       }, {
         type: 'input',
         name: 'git',
-        message: 'What is your git repository'
+        message: 'What is your git repository',
+        when: function () {
+          return !this.options['skip-git'];
+        }
       }, {
         type: 'list',
         name: 'transpiler',
@@ -296,14 +310,17 @@ module.exports = yeoman.Base.extend({
       );
     }
   },
-  installnpm: function () {
-    this.npmInstall();
-  },
-  installjspm: function () {
-    this.spawnCommand('jspm', ['install', '-y']);
+  install: function () {
+    this.installDependencies({
+      skipInstall: this.options['skip-install'],
+      bower: false,
+      callback: function() {
+        this.spawnCommandSync('jspm', ['install', '-y']);
+      }.bind(this)
+    });
   },
   git: function() {
-    if (this.props.git) {
+    if (!this.options['skip-git']) {
       this.spawnCommandSync('git', ['init']);
       this.spawnCommandSync('git', ['remote', 'add', 'origin', this.props.git]);
       this.spawnCommandSync('git', ['add', '--all']);
@@ -312,6 +329,8 @@ module.exports = yeoman.Base.extend({
     }
   },
   end: function () {
-    this.spawnCommand('gulp', ['watch']);
+    if (!this.options['skip-install']) {
+      this.spawnCommand('gulp', ['watch']);
+    }
   }
 });

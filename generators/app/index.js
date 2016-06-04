@@ -1,9 +1,9 @@
 'use strict';
 var yeoman = require('yeoman-generator'),
-  chalk = require('chalk'),
-  yosay = require('yosay'),
-  mkdirp = require('mkdirp');
-var  pluginGenerator = ['skeleton-es2016'];
+var chalk = require('chalk'),
+var yosay = require('yosay'),
+var mkdirp = require('mkdirp');
+var pluginGenerator = ['skeleton-es2016'];
 
 module.exports = yeoman.Base.extend({
   constructor: function () {
@@ -89,9 +89,7 @@ module.exports = yeoman.Base.extend({
   },
 
   plugins: function () {
-
     if (pluginGenerator.includes(this.props.skeleton)) {
-
       let prompts = [
         {
           name: 'url',
@@ -139,7 +137,7 @@ module.exports = yeoman.Base.extend({
             }
           ]
         }, {
-          name: 'auth_providers',
+          name: 'authProviders',
           message: 'What authorization methods do you want to support?',
           type: 'checkbox',
           choices: [
@@ -188,7 +186,7 @@ module.exports = yeoman.Base.extend({
             return answers.pluginlist.includes('aurelia-google-analytics');
           }
         }, {
-          name: 'i18n_languages',
+          name: 'i18nLanguages',
           message: 'What languages do you want to have (insert as comma seperated values, the first entry is the default language, the second the fallback)',
           type: 'input',
           default: 'de, en',
@@ -217,10 +215,9 @@ module.exports = yeoman.Base.extend({
 
   auths: function () {
     let prompts = [];
-
     if (pluginGenerator.includes(this.props.skeleton)) {
       if (this.plugins.pluginlist.includes('aurelia-auth')) {
-        this.plugins.auth_providers.forEach(function (provider) {
+        this.plugins.authProviders.forEach(function (provider) {
           prompts.push({
             name: provider,
             message: 'Please enter your ' + provider + ' clientId (productionid, developementid)',
@@ -263,17 +260,15 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-
+    let current = this;
     if (pluginGenerator.includes(this.props.skeleton)) {
-
       let plugins = ['aurelia-auth'];
-      let current = this;
       let template = {
           main: this.props,
           plugins: this.plugins
         };
 
-      template.plugins.auth = this.auth
+      template.plugins.auth = this.auth;
 
       current.fs.copy(
         current.templatePath(current.props.skeleton + '/static/**/*'),
@@ -302,7 +297,7 @@ module.exports = yeoman.Base.extend({
       });
       this.destinationRoot('./');
       if (current.plugins.pluginlist.includes('aurelia-i18n')) {
-        current.plugins.i18n_languages.forEach(function (lang) {
+        current.plugins.i18nLanguages.forEach(function (lang) {
           current.composeWith('awesome-aurelia:i18n', {args: [lang]});
         });
       }

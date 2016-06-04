@@ -5,9 +5,9 @@
     "backend": {
       "loadPath": "/locales/{{lng}}/{{ns}}.json"
     },
-    "lng" : "<%= plugins.i18n_languages[0] %>",
+    "lng" : "<%= plugins.i18nLanguages[0] %>",
     "attributes" : ["t","i18n"],
-    "fallbackLng" : "<%= plugins.i18n_languages[1] %>",
+    "fallbackLng" : "<%= plugins.i18nLanguages[1] %>",
     "debug" : false,
     "namespaces": ["translation","nav"],
     "defaultNs": "translation"
@@ -42,7 +42,7 @@
 <% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
   "auth": {
     "providers": {
-<% plugins.auth_providers.forEach(function(provider, index, providers){ -%>
+<% plugins.authProviders.forEach(function(provider, index, providers){ -%>
       "<%= provider %>": "<%= plugins.auth[provider][1] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
 <% }); -%>
     }
@@ -73,7 +73,7 @@
 <% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
       "auth": {
         "providers": {
-<% plugins.auth_providers.forEach(function(provider, index, providers){ -%>
+<% plugins.authProviders.forEach(function(provider, index, providers){ -%>
           "<%= provider %>": "<%= plugins.auth[provider][0] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
 <% }); -%>
         }

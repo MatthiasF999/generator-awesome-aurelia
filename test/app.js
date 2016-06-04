@@ -22,8 +22,8 @@ describe('generator-awesome-aurelia:app', function () {
         dotNet: false,
         url: 'website.com',
         pluginlist: ['aurelia-animator-css', 'aurelia-dialog', 'aurelia-validatejs', 'aurelia-dragula', 'aurelia-auth', 'aurelia-notify', 'aurelia-ui-virtualization', 'aurelia-i18n', 'aurelia-breeze', 'momentjs'],
-        auth_providers: ['github'],
-        i18n_languages: 'de, en',
+        authProviders: ['github'],
+        i18nLanguages: 'de, en',
         google: 'test1, test2'
       })
       .toPromise();

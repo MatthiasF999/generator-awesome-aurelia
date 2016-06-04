@@ -10,12 +10,10 @@ var getFirst = function (includes, array, startvalue, end) {
   }
   return startvalue;
 };
-var getPrevious = function(includes, array, startvalue, end) {
+var getPrevious = function (includes, array, startvalue, end) {
   startvalue = startvalue || array.length - 1;
   end = end++ || 0;
-    console.log(array[startvalue]);
-  while(startvalue > end && !array[startvalue].includes(includes)) {
-    console.log(array[startvalue]);
+  while (startvalue > end && !array[startvalue].includes(includes)) {
     startvalue--;
   }
   return startvalue;

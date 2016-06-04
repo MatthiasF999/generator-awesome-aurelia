@@ -148,7 +148,7 @@ describe('generator-awesome-aurelia:app', function () {
       'src/routes/auth/signup.html',
       'src/app.router.config.js'
     ]);
-  ]);
+  });
 
   it('creates dynamic auth files', function () {
     assert.file([

@@ -2,8 +2,8 @@
 var yeoman = require('yeoman-generator'),
   chalk = require('chalk'),
   yosay = require('yosay'),
-  mkdirp = require('mkdirp'),
-  pluginGenerator = ['skeleton-es2016'];
+  mkdirp = require('mkdirp');
+var  pluginGenerator = ['skeleton-es2016'];
 
 module.exports = yeoman.Base.extend({
   constructor: function () {
@@ -65,19 +65,19 @@ module.exports = yeoman.Base.extend({
     ];
     return this.prompt(prompts).then(function (props) {
       switch (true) {
-        case props.transpiler === 'Typescript' && props.bundler ==='Webpack':
+        case props.transpiler === 'Typescript' && props.bundler === 'Webpack':
           props.skeleton = 'skeleton-typescript-webpack';
           break;
-        case props.transpiler === 'Typescript' && props.bundler ==='JSPM' && props.dotNet === true:
+        case props.transpiler === 'Typescript' && props.bundler === 'JSPM' && props.dotNet === true:
           props.skeleton = 'skeleton-typescript-aps.net5';
           break;
-        case props.transpiler === 'Typescript' && props.bundler ==='JSPM':
+        case props.transpiler === 'Typescript' && props.bundler === 'JSPM':
           props.skeleton = 'skeleton-typescript';
           break;
-        case props.bundler ==='Webpack':
+        case props.bundler === 'Webpack':
           props.skeleton = 'skeleton-es2016-webpack';
           break;
-        case props.bundler ==='JSPM' && props.dotNet === true:
+        case props.bundler === 'JSPM' && props.dotNet === true:
           props.skeleton = 'skeleton-es2016-aps.net5';
           break;
         default:
@@ -89,6 +89,7 @@ module.exports = yeoman.Base.extend({
   },
 
   plugins: function () {
+
     if (pluginGenerator.includes(this.props.skeleton)) {
 
       let prompts = [
@@ -210,6 +211,7 @@ module.exports = yeoman.Base.extend({
         this.plugins = props;
         // To access props later use this.plugins.someAnswer;
       }.bind(this));
+
     }
   },
 
@@ -257,15 +259,16 @@ module.exports = yeoman.Base.extend({
     this.destinationRoot(root + '/');
     this.config.set(this.props);
     this.config.set(this.plugins);
-    this.config.set(this.auth)
+    this.config.set(this.auth);
   },
 
   writing: function () {
+
     if (pluginGenerator.includes(this.props.skeleton)) {
 
-      let plugins = ['aurelia-auth'],
-        current = this,
-        template = {
+      let plugins = ['aurelia-auth'];
+      let current = this;
+      let template = {
           main: this.props,
           plugins: this.plugins
         };
@@ -281,9 +284,9 @@ module.exports = yeoman.Base.extend({
         current.destinationRoot(),
         template
       );
-      ['models', 'resources', 'services'].forEach((element) => {
+      ['models', 'resources', 'services'].forEach(element => {
         mkdirp(current.destinationRoot() + '/src/' + element);
-      })
+      });
       plugins.forEach(function (plugin) {
         if (current.plugins.pluginlist.includes(plugin)) {
           current.fs.copy(
@@ -314,12 +317,12 @@ module.exports = yeoman.Base.extend({
     this.installDependencies({
       skipInstall: this.options['skip-install'],
       bower: false,
-      callback: function() {
+      callback: function () {
         this.spawnCommandSync('jspm', ['install', '-y']);
       }.bind(this)
     });
   },
-  git: function() {
+  git: function () {
     if (!this.options['skip-git']) {
       this.spawnCommandSync('git', ['init']);
       this.spawnCommandSync('git', ['remote', 'add', 'origin', this.props.git]);

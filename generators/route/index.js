@@ -1,25 +1,25 @@
 'use strict';
-var yeoman = require('yeoman-generator'),
-  chalk = require('chalk'),
-  yosay = require('yosay'),
-  s = require('underscore.string'),
-  mkdirp = require('mkdirp'),
-  getFirst = function(includes, array, startvalue, end) {
-    startvalue = startvalue || 0;
-    end = end || array.length - 1;
-    while(startvalue < end && !array[startvalue].includes(includes)) startvalue++;
-    return startvalue;
-  },
-  getPrevious = function(includes, array, startvalue, end) {
-    startvalue = startvalue || array.length - 1;
-    end = end++ || 0;
-      console.log(array[startvalue]);
-    while(startvalue > end && !array[startvalue].includes(includes)) {
-      console.log(array[startvalue]);
-      startvalue--;
-    }
-    return startvalue;
-  };
+var yeoman = require('yeoman-generator');
+var s = require('underscore.string');
+var mkdirp = require('mkdirp');
+var getFirst = function (includes, array, startvalue, end) {
+  startvalue = startvalue || 0;
+  end = end || array.length - 1;
+  while (startvalue < end && !array[startvalue].includes(includes)) {
+    startvalue++;
+  }
+  return startvalue;
+};
+var getPrevious = function(includes, array, startvalue, end) {
+  startvalue = startvalue || array.length - 1;
+  end = end++ || 0;
+    console.log(array[startvalue]);
+  while(startvalue > end && !array[startvalue].includes(includes)) {
+    console.log(array[startvalue]);
+    startvalue--;
+  }
+  return startvalue;
+};
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -59,7 +59,7 @@ module.exports = yeoman.Base.extend({
             checked: true
           }
         ]
-      },
+      }
     ];
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
@@ -73,7 +73,6 @@ module.exports = yeoman.Base.extend({
       folder: s.trim(s.dasherize(this.props.title), '-'),
       props: this.props
     };
-    let current = this;
 
     this.fs.copy(
       this.templatePath('index.html'),
@@ -94,7 +93,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('test/e2e/src/routes/' + temp.folder + '/index.spec.js'),
       temp
     );
-    if (temp.props.folders.includes['routes']) {
+    if (temp.props.folders.routes) {
       this.fs.copyTpl(
         this.templatePath('test/unit/child-router.spec.js'),
         this.destinationPath('test/unit/' + temp.folder + '.spec.js'),
@@ -107,11 +106,11 @@ module.exports = yeoman.Base.extend({
         temp
       );
     }
-    temp.props.folders.forEach((element) => {
+    temp.props.folders.forEach(element => {
       mkdirp(this.destinationPath('src/routes/' + temp.folder + '/' + element));
     });
     if (this.props.folders.includes('routes')) {
-      mkdirp(this.destinationPath('test/e2e/src/routes/' + temp.folder + '/routes'));  
+      mkdirp(this.destinationPath('test/e2e/src/routes/' + temp.folder + '/routes'));
     }
   },
 
@@ -129,11 +128,13 @@ module.exports = yeoman.Base.extend({
     let worktitle = s.trim(s.dasherize(this.props.title), '-');
 
     content[1] = '{ route: \'' + worktitle + '\',  name: \'' + worktitle + '\', moduleId: \'routes/' + worktitle + '/index\',  nav: ' + this.props.nav + ',  title: \'' + this.props.title + '\'';
-    if(auth) content[1] += ',  auth: ' + this.props.auth;
+    if (auth) {
+      content[1] += ',  auth: ' + this.props.auth;
+    }
     content[1] += ' }';
     content = content.join('');
 
-    if(!str[row].includes('},')) {
+    if (!str[row].includes('},')) {
       str[row] = str[row].replace('}', '},');
     }
 
@@ -143,7 +144,7 @@ module.exports = yeoman.Base.extend({
     this.fs.write(route, str);
   },
 
-  updatingtest: function() {
+  updatingtest: function () {
     let route = 'test/unit/app.spec.js';
     let str = this.fs.read(route).split('\n');
     let row = getPrevious('sut.router.routes', str);
@@ -153,7 +154,9 @@ module.exports = yeoman.Base.extend({
     let worktitle = s.trim(s.dasherize(this.props.title), '-');
 
     content[1] = '{ route: \'' + worktitle + '\',  name: \'' + worktitle + '\', moduleId: \'routes/' + worktitle + '/index\',  nav: ' + this.props.nav + ',  title: \'' + this.props.title + '\'';
-    if(auth) content[1] += ',  auth: ' + this.props.auth;
+    if (auth) {
+      content[1] += ',  auth: ' + this.props.auth;
+    }
     content[1] += ' }';
 
     content = content.join('');
@@ -161,7 +164,7 @@ module.exports = yeoman.Base.extend({
     str.splice(row + 2, 0, str[row + 1]);
     str.splice(row + 2, 0, content);
     str.splice(row + 2, 0, str[row - 1]);
-    str.splice(row + 2, 0, '');;
+    str.splice(row + 2, 0, '');
     str = str.join('\n');
 
     this.fs.write(route, str);

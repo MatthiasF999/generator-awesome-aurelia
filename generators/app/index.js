@@ -209,7 +209,6 @@ module.exports = yeoman.Base.extend({
         this.plugins = props;
         // To access props later use this.plugins.someAnswer;
       }.bind(this));
-
     }
   },
 
@@ -264,9 +263,9 @@ module.exports = yeoman.Base.extend({
     if (pluginGenerator.includes(this.props.skeleton)) {
       let plugins = ['aurelia-auth'];
       let template = {
-          main: this.props,
-          plugins: this.plugins
-        };
+        main: this.props,
+        plugins: this.plugins
+      };
 
       template.plugins.auth = this.auth;
 

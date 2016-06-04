@@ -6,7 +6,7 @@ var deps = [
   [helpers.createDummyGenerator(), 'awesome-aurelia:i18n']
 ];
 
-describe('generator-awesome-aurelia:app', function () {
+describe('generator-awesome-aurelia:app', function (done) {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withGenerators(deps)
@@ -26,7 +26,8 @@ describe('generator-awesome-aurelia:app', function () {
         i18nLanguages: 'de, en',
         google: 'test1, test2'
       })
-      .toPromise();
+      .toPromise()
+      .on('end', done);;
   });
 
   it('creates static root files', function () {

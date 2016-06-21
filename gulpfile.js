@@ -12,7 +12,11 @@ var coveralls = require('gulp-coveralls');
 gulp.task('static', function () {
   return gulp.src(['**/*.js', '!**/templates/**/*.js', '!node_modules/**'])
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint({
+      rules: {
+        'linebreak-style': 'off'
+      }
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });

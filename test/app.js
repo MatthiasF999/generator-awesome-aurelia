@@ -6,7 +6,7 @@ var deps = [
   [helpers.createDummyGenerator(), 'awesome-aurelia:i18n']
 ];
 
-describe('generator-awesome-aurelia:app', function (done) {
+describe('generator-awesome-aurelia:app', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withGenerators(deps)
@@ -26,11 +26,11 @@ describe('generator-awesome-aurelia:app', function (done) {
         i18nLanguages: 'de, en',
         google: 'test1, test2'
       })
-      .toPromise()
-      .on('end', done);;
+      .toPromise();
   });
 
-  it('creates static root files', function () {
+  it('creates static files', function () {
+    console.log('done');
     assert.file([
       '.editorconfig',
       '.eslintignore',
@@ -47,12 +47,7 @@ describe('generator-awesome-aurelia:app', function (done) {
       'karma.conf.js',
       'protractor.conf.js',
       'README.md',
-      'wallaby.js'
-    ]);
-  });
-
-  it('creates static building files', function () {
-    assert.file([
+      'wallaby.js',
       'build/.eslintrc',
       'build/args.js',
       'build/babel-options.js',
@@ -68,19 +63,9 @@ describe('generator-awesome-aurelia:app', function (done) {
       'build/tasks/prepare-release.js',
       'build/tasks/serve.js',
       'build/tasks/test.js',
-      'build/tasks/watch.js'
-    ]);
-  });
-
-  it('creates static doc files', function () {
-    assert.file([
+      'build/tasks/watch.js',
       'doc/api.json',
-      'doc/CHANGELOG.md'
-    ]);
-  });
-
-  it('creates static source files', function () {
-    assert.file([
+      'doc/CHANGELOG.md',
       'src/.eslintrc',
       'src/components/nav-bar.html',
       'src/routes/child-router/index.js',
@@ -88,18 +73,8 @@ describe('generator-awesome-aurelia:app', function (done) {
       'src/routes/users/index.html',
       'src/routes/users/services/blur-image.js',
       'src/routes/welcome/index.js',
-      'src/routes/welcome/index.html'
-    ]);
-  });
-
-  it('creates static style files', function () {
-    assert.file([
-      'styles/styles.css'
-    ]);
-  });
-
-  it('creates static test files', function () {
-    assert.file([
+      'src/routes/welcome/index.html',
+      'styles/styles.css',
       'test/e2e/src/demo.spec.js',
       'test/e2e/src/skeleton.po.js',
       'test/e2e/src/welcome.po.js',
@@ -110,37 +85,22 @@ describe('generator-awesome-aurelia:app', function (done) {
     ]);
   });
 
-  it('creates dynamic root files', function () {
+  it('creates dynamic files', function () {
     assert.file([
       'index.html',
-      'package.json'
-    ]);
-  });
-
-  it('creates dynamic build files', function () {
-    assert.file([
+      'package.json',
       'build/bundles.js',
-      'build/export.js'
-    ]);
-  });
-
-  it('creates dynamic source files', function () {
-    assert.file([
+      'build/export.js',
       'src/app.js',
       'src/app.html',
       'src/main.js',
       'src/config/config.json',
-      'src/routes/child-router/index.html'
-    ]);
-  });
-
-  it('creates dynamic test files', function () {
-    assert.file([
+      'src/routes/child-router/index.html',
       'test/unit/app.spec.js'
     ]);
   });
 
-  it('creates static auth files', function () {
+  it('creates static plugin files', function () {
     assert.file([
       'src/routes/auth/login.js',
       'src/routes/auth/logout.js',
@@ -151,7 +111,7 @@ describe('generator-awesome-aurelia:app', function (done) {
     ]);
   });
 
-  it('creates dynamic auth files', function () {
+  it('creates dynamic plugin files', function () {
     assert.file([
       'src/routes/auth/login.html'
     ]);

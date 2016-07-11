@@ -25,7 +25,7 @@ Run:
 yo awesome-aurelia:route
 ```
 
-This will generate the necessary files and folders, based on your answers
+This will generate the necessary files and folders, based on your answers (only jspm without dotnet)
 
 ## Adding a language
 Run the command and replace LANGUAGE with the shortform of the language

@@ -3,7 +3,7 @@ var yeoman = require( 'yeoman-generator' );
 var chalk = require( 'chalk' );
 var yosay = require( 'yosay' );
 var mkdirp = require( 'mkdirp' );
-var pluginGenerator = [ 'skeleton-es2016' ];
+var pluginGenerator = [ 'skeleton-esnext' ];
 
 module.exports = yeoman.Base.extend( {
 	prompting: function () {
@@ -298,9 +298,6 @@ module.exports = yeoman.Base.extend( {
 	git: function () {
 		this.spawnCommandSync( 'git', [ 'init' ] );
 		this.spawnCommandSync( 'git', [ 'remote', 'add', 'origin', this.props.git ] );
-		this.spawnCommandSync( 'git', [ 'add', '--all' ] );
-		this.spawnCommandSync( 'git', [ 'commit', '-m', '"initial commit from generator"' ] );
-		this.spawnCommandSync( 'git', [ 'push', '-u', 'origin', 'master' ] );
 	},
 	end: function () {
 		this.spawnCommand( 'gulp', [ 'watch' ] );

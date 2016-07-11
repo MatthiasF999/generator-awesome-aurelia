@@ -8,9 +8,11 @@ module.exports = {
     'favicon.ico',
     'LICENSE',
     'jspm_packages/system.js',
+    'jspm_packages/system.js.map',
     'jspm_packages/system-polyfills.js',
     'jspm_packages/system-csp-production.js',
-    'styles/styles.css'
+    '_styles/styles.css',
+    'locales/**/*.json'
   ],
   // this section lists any jspm packages that have
   // unbundled resources that need to be exported.

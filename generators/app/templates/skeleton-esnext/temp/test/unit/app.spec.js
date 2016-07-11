@@ -29,14 +29,14 @@ describe('the App module', () => {
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain({ route: ['', 'welcome'], name: 'welcome',  moduleId: 'welcome', nav: true, title: 'Welcome' });
+    expect(sut.router.routes).toContain({ route: ['', 'welcome'], name: 'welcome',  moduleId: 'routes/welcome/index', nav: true, title: 'Welcome'<% if (plugins.pluginlist.includes('aurelia-auth')) { %>, auth: false<% } %> });
   });
 
   it('should have a users route', () => {
-    expect(sut.router.routes).toContain({ route: 'users', name: 'users', moduleId: 'users', nav: true, title: 'Github Users' });
+    expect(sut.router.routes).toContain({ route: 'users', name: 'users', moduleId: 'routes/users/index', nav: true, title: 'Github Users'<% if (plugins.pluginlist.includes('aurelia-auth')) { %>, auth: false<% } %> });
   });
 
   it('should have a child router route', () => {
-    expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' });
+    expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'routes/child-router/index', nav: true, title: 'Child Router'<% if (plugins.pluginlist.includes('aurelia-auth')) { %>, auth: false<% } %> });
   });
 });

@@ -4,6 +4,10 @@
 module.exports = {
   'list': [
     'index.html',
+    '_styles/styles.css',
+<% if (plugins.pluginlist.includes('aurelia-i18n')) { -%>
+    'locales/**/*.json',
+<% } -%>
     'config.js',
     'favicon.ico',
     'LICENSE',
@@ -11,8 +15,6 @@ module.exports = {
     'jspm_packages/system.js.map',
     'jspm_packages/system-polyfills.js',
     'jspm_packages/system-csp-production.js',
-    '_styles/styles.css',
-    'locales/**/*.json'
   ],
   // this section lists any jspm packages that have
   // unbundled resources that need to be exported.

@@ -2,11 +2,13 @@ module.exports = {
   'bundles': {
     'dist/app-build': {
       'includes': [
+<% if (plugins.pluginlist.includes('momentjs')) { -%>
+			'moment',
+<% } -%>
         '[**/*.js]',
         '**/*.html!text',
         '**/*.css!text',
-        '**/*.json!text',
-        'moment'
+        '**/*.json!text'
       ],
       'options': {
         'inject': true,
@@ -30,22 +32,41 @@ module.exports = {
         'aurelia-history-browser',
         'aurelia-logging-console',
         'aurelia-configuration',
+<% if (plugins.pluginlist.includes('aurelia-validatejs')) { -%>
         'aurelia-validatejs',
         'aurelia-validatejs/validate-binding-behavior',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-ui-virtualization')) { -%>
         'aurelia-ui-virtualization',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-dialog')) { -%>
         'aurelia-dialog',
         'aurelia-dialog/resources/*.html!text',
         'aurelia-dialog/dialog.css!text',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-notification')) { -%>
         'aurelia-notification',
+        'humane-js',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
         'aurelia-google-analytics',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-breeze')) { -%>
         'aurelia-breeze',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-dragula')) { -%>
         'aurelia-dragula',
         'aurelia-dragula/dragula-and-drop',
         'aurelia-dragula/dragula.css!text',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
         'aurelia-auth',
         'aurelia-auth/auth-filter',
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-i18n')) { -%>
         'aurelia-i18n',
         'i18next-xhr-backend',
+<% } -%>
         'bootstrap',
         'bootstrap/css/bootstrap.css!text',
         'text',

@@ -53,19 +53,19 @@ module.exports = yeoman.Base.extend( {
 				props.skeleton = 'skeleton-typescript-webpack';
 				break;
 			case props.transpiler === 'Typescript' && props.bundler === 'JSPM' && props.dotNet === true:
-				props.skeleton = 'skeleton-typescript-aps.net5';
+				props.skeleton = 'skeleton-typescript-aspnetcore';
 				break;
 			case props.transpiler === 'Typescript' && props.bundler === 'JSPM':
 				props.skeleton = 'skeleton-typescript';
 				break;
 			case props.bundler === 'Webpack':
-				props.skeleton = 'skeleton-es2016-webpack';
+				props.skeleton = 'skeleton-esnext-webpack';
 				break;
 			case props.bundler === 'JSPM' && props.dotNet === true:
-				props.skeleton = 'skeleton-es2016-aps.net5';
+				props.skeleton = 'skeleton-esnext-aspnetcore';
 				break;
 			default:
-				props.skeleton = 'skeleton-es2016';
+				props.skeleton = 'skeleton-esnext';
 			}
 			// To access props later use this.props.someAnswer;
 			this.props = props;
@@ -266,7 +266,7 @@ module.exports = yeoman.Base.extend( {
 						current.destinationRoot()
 					);
 					current.fs.copyTpl(
-						current.templatePath( current.props.skeleton + 'temp/plugins/' + plugin + '/temp/**/*' ),
+						current.templatePath( current.props.skeleton + '/plugins/' + plugin + '/temp/**/*' ),
 						current.destinationRoot(),
 						template
 					);

@@ -1,0 +1,84 @@
+{
+  "name": "<%= main.appName %>",
+<% if (plugins.pluginlist.includes('aurelia-i18n')) { -%>
+  "i18n": {
+    "backend": {
+      "loadPath": "/locales/{{lng}}/{{ns}}.json"
+    },
+    "lng" : "<%= plugins.i18nLanguages[0] %>",
+    "attributes" : ["t","i18n"],
+    "fallbackLng" : "<%= plugins.i18nLanguages[1] %>",
+    "debug" : false,
+    "namespaces": ["translation","nav"],
+    "defaultNs": "translation"
+  },
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-notification')) { -%>
+  "notification": {
+    "translate": true,
+    "notifications": {
+      "success": "humane-libnotify-success",
+      "error": "humane-libnotify-error",
+      "info": "humane-libnotify-info"
+    }
+  },
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
+  "google-analytics": {
+    "tracking-id": "<%= plugins.googleanalytics_id %>",
+    "config": {
+      "logging": {
+        "enabled": true
+      },
+      "pageTracking": {
+        "enabled": false
+      },
+      "clickTracking": {
+        "enabled": false
+      }
+    }
+  },
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
+  "auth": {
+    "providers": {
+<% plugins.authProviders.forEach(function(provider, index, providers){ -%>
+      "<%= provider %>": "<%= plugins.auth[provider][1] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
+<% }); -%>
+    }
+  },
+<% } -%>
+  "development": {
+    "env": "development"
+  },
+  "staging": {
+    "env": "staging"
+  },
+  "production": {
+<% if (plugins.pluginlist.includes('aurelia-google-analytics')) { -%>
+    "google-analytics": {
+      "config": {
+        "logging": {
+          "enabled": false
+        },
+        "pageTracking": {
+          "enabled": true
+        },
+        "clickTracking": {
+          "enabled": true
+        }
+      }
+    },
+<% } -%>
+<% if (plugins.pluginlist.includes('aurelia-auth')) { -%>
+      "auth": {
+        "providers": {
+<% plugins.authProviders.forEach(function(provider, index, providers){ -%>
+          "<%= provider %>": "<%= plugins.auth[provider][0] %>"<% if (!(index === providers.length - 1)) { %>,<% } %>
+<% }); -%>
+        }
+      },
+<% } -%>
+    "env": "production"
+  }
+}

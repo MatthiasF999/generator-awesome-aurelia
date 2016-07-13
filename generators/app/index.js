@@ -26,27 +26,27 @@ module.exports = yeoman.Base.extend( {
 			type: 'input',
 			name: 'git',
 			message: 'What is your git repository'
-		}, {
+		} /*, {
 			type: 'list',
 			name: 'transpiler',
 			message: 'Which Transpiler do you want to use?',
-			choices: [ 'ES 2016', 'Typescript' ],
+			choices: [ 'ES 2016' , 'Typescript' ],
 			default: 0
 		}, {
 			type: 'list',
 			name: 'bundler',
 			message: 'Do you want to use JSPM or Webpack?',
-			choices: [ 'JSPM', 'Webpack' ],
+			choices: [ 'JSPM' , 'Webpack' ],
 			default: 0
-		}, {
+		} , {
 			type: 'confirm',
 			name: 'dotNet',
 			message: 'Do you want to use .NET as backend?',
 			default: false,
 			when: function ( answers ) {
-				return answers.transpiler === 'ES 2016';
+				return answers.bundler === 'JSPM';
 			}
-		} ];
+		} */ ];
 		return this.prompt( prompts ).then( function ( props ) {
 			switch ( true ) {
 			case props.transpiler === 'Typescript' && props.bundler === 'Webpack':
@@ -287,19 +287,51 @@ module.exports = yeoman.Base.extend( {
 			);
 		}
 	},
+
+	after: function () {
+		let prompts = [ {
+			type: 'confirm',
+			name: 'git',
+			message: 'Do you want git to run init?',
+			default: true
+		}, {
+			type: 'confirm',
+			name: 'install',
+			message: 'Do you want the project to install the dependencies?',
+			default: true
+		}, {
+			type: 'confirm',
+			name: 'watch',
+			message: 'Do you want to open the project afterwards?',
+			default: true,
+			when: function ( answers ) {
+				return answers.install;
+			}
+		} ];
+		return this.prompt( prompts ).then( function ( props ) {
+			this.after = props;
+		}.bind( this ) );
+	},
+
 	install: function () {
-		this.installDependencies( {
-			bower: false,
-			callback: function () {
-				this.spawnCommandSync( 'jspm', [ 'install', '-y' ] );
-			}.bind( this )
-		} );
+		if (this.after.install) {
+			this.installDependencies( {
+				bower: false,
+				callback: function () {
+					this.spawnCommandSync( 'jspm', [ 'install', '-y' ] );
+				}.bind( this )
+			} );
+		}
 	},
 	git: function () {
-		this.spawnCommandSync( 'git', [ 'init' ] );
-		this.spawnCommandSync( 'git', [ 'remote', 'add', 'origin', this.props.git ] );
+		if (this.after.git) {
+			this.spawnCommandSync( 'git', [ 'init' ] );
+			this.spawnCommandSync( 'git', [ 'remote', 'add', 'origin', this.props.git ] );
+		}
 	},
 	end: function () {
-		this.spawnCommand( 'gulp', [ 'watch' ] );
+		if(this.after.watch) {
+			this.spawnCommand( 'gulp', [ 'watch' ] );
+		}
 	}
 } );

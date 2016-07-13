@@ -3,7 +3,7 @@
 
 ## Installation
 
-First, install [jspm](http://jspm.io), [gulp](http://gulpjs.com), [Yeoman](http://yeoman.io) and generator-awesome-aurelia using [npm](https://www.npmjs.com/) (we assume you have pre-installed the newest (> 6.0.0) [node.js](https://nodejs.org/)).
+First, install [jspm](http://jspm.io), [gulp](http://gulpjs.com), [Yeoman](http://yeoman.io) and generator-awesome-aurelia using [npm](https://www.npmjs.com/) (we assume you have pre-installed the newest (min 6.0.0) [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g jspm
